@@ -17,7 +17,17 @@ models:
     description: "A large language model for coding tasks"
 
   qwen3_vl_30b_instruct:
-    cmd: /app/llama-server --port ${PORT} -m /models/Qwen3-VL-30B-A3B-Instruct-UD-Q5_K_XL.gguf -ngl 99 --ctx-size 128000 --n-gpu-layers 33
+    cmd: /app/llama-server --port ${PORT} -m /models/Qwen3-VL-30B-A3B-Instruct-UD-Q5_K_XL.gguf -ngl 99 --mmproj /models/mmproj-BF16.gguf --ctx-size 64000 --n-gpu-layers 33
+    proxy: http://127.0.0.1:${PORT}
+    checkEndpoint: /health
+    name: "Qwen3 VL 30B Instruct"
+    description: "A vision-language model for multimodal tasks"
+
+#  --cache-type-k q8_0 --cache-type-v q8_
+# 0
+
+  qwen3_vl_30b_thinking:
+    cmd: /app/llama-server --port ${PORT} -m /models/Qwen3-VL-30B-A3B-Thinking-UD-Q4_K_XL.gguf --mmproj /models/mmproj-thinking-BF16.gguf -ngl 99 --ctx-size 32000 --n-gpu-layers 33
     proxy: http://127.0.0.1:${PORT}
     checkEndpoint: /health
     name: "Qwen3 VL 30B Instruct"

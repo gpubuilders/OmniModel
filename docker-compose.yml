@@ -18,8 +18,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ../config.yaml:/app/config.yaml
-      - ../../../models/:/models
+      - ./config.yaml:/app/config.yaml
+      - ~/models/:/models
     # restart: unless-stopped
     deploy:
       resources:
