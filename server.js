@@ -925,11 +925,20 @@ app.get('/unload', async (req, res) => {
   }
 });
 
-// Static file serving for UI
+// Static file serving for UIs
 const UI_DIR = path.join(__dirname, 'dist', 'ui');
+const CHAT_DIR = path.join(__dirname, 'dist');
 
-// Serve static files from the UI directory
+// Serve the new SvelteKit webui from root
+app.use(express.static(CHAT_DIR));
+
+// Serve static files from the existing UI directory under /ui
 app.use('/ui', express.static(UI_DIR));
+
+// // Catch-all route to serve the SvelteKit webui for root paths (excluding API routes and UI route)
+// app.get(/^(?!\/ui|\/api\/|\/running|\/unload|\/health|\/props|\/slots|\/upstream|\/v1\/)/, (req, res) => {
+//   res.sendFile(path.join(CHAT_DIR, 'index.html'));
+// });
 
 // Catch-all route to serve the UI for any route under /ui
 app.get('/ui/*', (req, res) => {

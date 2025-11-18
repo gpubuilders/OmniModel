@@ -305,6 +305,7 @@
 				<ChatScreenWarning class="pointer-events-auto mx-auto max-w-[48rem] px-4" />
 			{/if}
 
+			{#if serverStore.modelName || serverStore.serverProps}
 			<div class="conversation-chat-form pointer-events-auto rounded-t-3xl pb-4">
 				<ChatForm
 					isLoading={isCurrentConversationLoading}
@@ -316,6 +317,14 @@
 					bind:uploadedFiles
 				/>
 			</div>
+		{:else}
+			<div class="conversation-chat-form pointer-events-auto rounded-t-3xl pb-4 p-4">
+				<div class="text-center text-muted-foreground py-8">
+					<p class="mb-4">Please load a model to start chatting.</p>
+					<p class="text-sm">Connect to a model server or load a model first.</p>
+				</div>
+			</div>
+		{/if}
 		</div>
 	</div>
 {:else if isServerLoading}
@@ -348,17 +357,24 @@
 				<ChatScreenWarning />
 			{/if}
 
-			<div in:fly={{ y: 10, duration: 250, delay: 300 }}>
-				<ChatForm
-					isLoading={isCurrentConversationLoading}
-					onFileRemove={handleFileRemove}
-					onFileUpload={handleFileUpload}
-					onSend={handleSendMessage}
-					onStop={() => stopGeneration()}
-					showHelperText={true}
-					bind:uploadedFiles
-				/>
-			</div>
+			{#if serverStore.modelName || serverStore.serverProps}
+				<div in:fly={{ y: 10, duration: 250, delay: 300 }}>
+					<ChatForm
+						isLoading={isCurrentConversationLoading}
+						onFileRemove={handleFileRemove}
+						onFileUpload={handleFileUpload}
+						onSend={handleSendMessage}
+						onStop={() => stopGeneration()}
+						showHelperText={true}
+						bind:uploadedFiles
+					/>
+				</div>
+			{:else}
+				<div class="py-8 text-center text-muted-foreground">
+					<p class="mb-4">Please load a model to start chatting.</p>
+					<p class="text-sm">Connect to a model server or load a model first.</p>
+				</div>
+			{/if}
 		</div>
 	</div>
 {/if}

@@ -91,9 +91,18 @@ RUN npm ci --only=production
 # Copy all source files
 COPY --chown=$UID:$GID . .
 
-# Build the UI
+# Build both UIs
 WORKDIR /app/ui
 RUN npm install --legacy-peer-deps && npm run build
+
+# Temporarily move the UI build to prevent overwriting
+RUN rm -rf ../temp_ui && mv ../dist/ui ../temp_ui
+
+WORKDIR /app/webui
+RUN npm install && npm run build
+
+# Combine both builds in the final dist directory
+RUN rm -rf ../dist && mkdir -p ../dist && mv ../temp_dist/* ../dist/ && mkdir -p ../dist/ui && mv ../temp_ui/* ../dist/ui && rm -rf ../temp_ui
 
 # Go back to app directory
 WORKDIR /app

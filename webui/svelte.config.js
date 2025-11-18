@@ -10,12 +10,12 @@ const config = {
 
 	kit: {
 		paths: {
-			relative: true
+			base: ''
 		},
-		router: { type: 'hash' },
+		router: { type: 'pathname' },
 		adapter: adapter({
-			pages: '../public',
-			assets: '../public',
+			pages: '../temp_dist',
+			assets: '../temp_dist',
 			fallback: 'index.html',
 			precompress: false,
 			strict: true
