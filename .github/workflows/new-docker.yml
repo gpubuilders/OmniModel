@@ -1,0 +1,101 @@
+name: Build and Push Node.js Container
+
+on:
+  # Run weekly on Mondays at 5:37 AM UTC
+  schedule:
+    - cron: "37 5 * * 1"
+  
+  # Run on pushes to main branch
+  push:
+    branches:
+      - main
+    paths:
+      - 'Dockerfile'
+      - 'package*.json'
+      - 'src/**'
+      - 'ui/**'
+      - '.github/workflows/nodejs-docker.yml'
+  
+  # Run on pull requests
+  pull_request:
+    branches:
+      - main
+  
+  # Allow manual triggering
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            # Set latest tag for main branch
+            type=raw,value=latest,enable={{is_default_branch}}
+            # Tag with branch name
+            type=ref,event=branch
+            # Tag with PR number
+            type=ref,event=pr
+            # Tag with git tag
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            # Tag with commit SHA
+            type=sha,prefix={{branch}}-
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            BASE_TAG=server-cuda
+            LS_VER=170
+            UID=1001
+            GID=1001
+
+  # Optional: Clean up old untagged images
+  cleanup-old-images:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    permissions:
+      packages: write
+    
+    steps:
+      - name: Delete old untagged images
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: ${{ github.event.repository.name }}
+          package-type: 'container'
+          min-versions-to-keep: 5
+          delete-only-untagged-versions: 'true'
