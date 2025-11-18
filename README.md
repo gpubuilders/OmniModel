@@ -1,9 +1,3 @@
-# Model Swap, a fork of Llama-Swap but in vanilla Node.js
-
-A reverse proxy for local LLM models with dynamic switching capabilities, implemented in Node.js.
-
-
-
 # Model Swap
 
 A fork of [Llama-Swap](https://github.com/mostlygeek/llama-swap) but implemented in **vanilla Node.js**.
