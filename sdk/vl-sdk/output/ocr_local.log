@@ -1,0 +1,470 @@
+Requirement already satisfied: pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (11.3.0)
+======================================================================
+Checking and installing dependencies...
+======================================================================
+Installing pillow...
+✓ pillow installed successfully
+
+✓ All dependencies installed!
+
+======================================================================
+OCR with Qwen3-VL - Local LLM Version
+======================================================================
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Server: http://localhost:8080/v1
+======================================================================
+
+======================================================================
+Testing Local LLM Connection
+======================================================================
+
+✓ Server is accessible at http://localhost:8080/v1
+
+Available models:
+    LFM2-1.2B-Tool-Q4_K_M-cuda
+    LFM2-8B-A1B-BF16-cpu
+    LFM2-8B-A1B-BF16-cuda
+    LFM2-8B-A1B-UD-Q3_K_XL-cpu
+    LFM2-8B-A1B-UD-Q3_K_XL-cuda
+    qwen3_coder_reap_25b_A3B_IQ4_XS
+    qwen3_vl_30b_instruct
+    qwen3_vl_30b_thinking
+    Qwen3-0.6B-vllm
+    Qwen3-1.7B-vllm
+    Qwen3-4B-Instruct-2507-vllm
+    Qwen3-8B-vllm
+    Qwen3-Omni-10k
+    Qwen3-Omni-2k
+  ✓ Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm (target model)
+    Qwen3-VL-8B-Instruct-AWQ-8bit-74k-vllm
+    SmallThinker-4B-A0.6B-Instruct_Q8_0
+    vibeThinker
+
+✓ Target model 'Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm' is available!
+
+======================================================================
+Ready to run OCR examples!
+======================================================================
+
+Running OCR examples... (This may take a few minutes)
+
+
+======================================================================
+EXAMPLE 1: Full-page OCR for English Text
+======================================================================
+
+Image: ./assets/ocr/ocr_example2.jpg
+Prompt: Read all the text in the image.
+
+----------------------------------------------------------------------
+OCR RESULT:
+----------------------------------------------------------------------
+
+Auntie Anne's
+CINNAMON SUGAR
+1 x 17,000 17,000
+SUB TOTAL 17,000
+GRANDTOTAL 17,000
+CASH IDR 20,000
+CHANGE DUE 3,000
+
+======================================================================
+
+
+======================================================================
+EXAMPLE 2: Full-page OCR for Multilingual Text
+======================================================================
+
+Image: ./assets/ocr/ocr_example6.jpg
+Prompt: Please output only the text content from the image without any additional descriptions or formatting.
+
+----------------------------------------------------------------------
+OCR RESULT:
+----------------------------------------------------------------------
+
+ΠΡΟΣΟΧΗ
+ΜΗ ΣΤΑΘΜΕΥΕΤΕ
+ΕΔΩ
+STOP
+ΕΙΣΟΔΟΣ - ΕΞΟΔΟΣ
+ΑΥΤΟΚΙΝΗΤΟΥ
+NO PARKING
+G.P
+
+======================================================================
+
+
+======================================================================
+EXAMPLE 3: Text Spotting (Line-level)
+======================================================================
+
+This example detects text and provides bounding box coordinates.
+Coordinates are in relative format [x1, y1, x2, y2] ranging from 0-999.
+
+Image: ./assets/ocr/ocr_example3.jpg
+Prompt: Spotting all the text in the image with line-level, and output in JSON format as [{'bbox_2d': [x1, y1, x2, y2], 'text_content': 'text'}, ...].
+
+----------------------------------------------------------------------
+TEXT SPOTTING RESULT:
+----------------------------------------------------------------------
+
+Raw JSON output:
+```json
+[
+	{"bbox_2d": [706, 24, 973, 78], "text_content": "A06002"},
+	{"bbox_2d": [141, 118, 869, 150], "text_content": "UNIHAKKA INTERNATIONAL SDN BHD"},
+	{"bbox_2d": [371, 150, 633, 172], "text_content": "01 Jun 2018 18:41"},
+	{"bbox_2d": [418, 178, 593, 198], "text_content": "(867388-U)"},
+	{"bbox_2d": [187, 200, 816, 230], "text_content": "12, Jalan Tampoi 7/4,Kawasan Perindustrian"},
+	{"bbox_2d": [263, 230, 735, 257], "text_content": "Tampoi,81200 Johor Bahru,Johor"},
+	{"bbox_2d": [395, 261, 600, 282], "text_content": "TAX INVOICE"},
+	{"bbox_2d": [103, 283, 548, 309], "text_content": "Invoice #: OR18060102160261"},
+	{"bbox_2d": [99, 322, 165, 342], "text_content": "Item"},
+	{"bbox_2d": [352, 325, 411, 345], "text_content": "Qty"},
+	{"bbox_2d": [815, 327, 894, 348], "text_content": "Total"},
+	{"bbox_2d": [100, 354, 484, 377], "text_content": "SR I00100000061- 5 Vege"},
+	{"bbox_2d": [99, 384, 198, 402], "text_content": "RM6.22"},
+	{"bbox_2d": [348, 385, 362, 402], "text_content": "1"},
+	{"bbox_2d": [776, 395, 887, 414], "text_content": "RM6.22"},
+	{"bbox_2d": [99, 425, 496, 450], "text_content": "SR I00100000001- Chicken"},
+	{"bbox_2d": [99, 455, 198, 473], "text_content": "RM2.54"},
+	{"bbox_2d": [348, 456, 362, 473], "text_content": "1"},
+	{"bbox_2d": [776, 466, 887, 486], "text_content": "RM2.54"},
+	{"bbox_2d": [570, 512, 882, 535], "text_content": "Total Amount: RM8.76"},
+	{"bbox_2d": [602, 538, 874, 559], "text_content": "GST @0%: RM0.00"},
+	{"bbox_2d": [607, 567, 881, 587], "text_content": "Rounding: -RM0.01"},
+	{"bbox_2d": [613, 593, 882, 614], "text_content": "Nett Total: RM8.75"},
+	{"bbox_2d": [86, 631, 298, 653], "text_content": "Payment Mode"},
+	{"bbox_2d": [766, 638, 882, 657], "text_content": "Amount"},
+	{"bbox_2d": [82, 663, 174, 682], "text_content": "CASH"},
+	{"bbox_2d": [766, 670, 882, 689], "text_content": "RM8.75"},
+	{"bbox_2d": [82, 691, 198, 711], "text_content": "Change"},
+	{"bbox_2d": [766, 698, 882, 717], "text_content": "RM0.00"},
+	{"bbox_2d": [76, 757, 258, 778], "text_content": "GST Summary"},
+	{"bbox_2d": [462, 763, 613, 783], "text_content": "Amount(RM)"},
+	{"bbox_2d": [772, 766, 874, 786], "text_content": "Tax(RM)"},
+	{"bbox_2d": [76, 790, 258, 811], "text_content": "SR = GST @0%"},
+	{"bbox_2d": [563, 795, 609, 811], "text_content": "8.76"},
+	{"bbox_2d": [820, 797, 854, 812], "text_content": "0.00"},
+	{"bbox_2d": [282, 833, 663, 856], "text_content": "GST REG #000656195584"},
+	{"bbox_2d": [214, 860, 726, 885], "text_content": "BAR WANG RICE@PERMAS JAYA"},
+	{"bbox_2d": [282, 887, 656, 912], "text_content": "Thank You & Come Again!"},
+	{"bbox_2d": [233, 916, 698, 942], "text_content": "Like and Follow Us on Facebook!"},
+	{"bbox_2d": [259, 945, 672, 970], "text_content": "Facebook.com/BarWangRice"}
+]
+```
+
+----------------------------------------------------------------------
+
+Image dimensions: 870x1398
+----------------------------------------------------------------------
+
+Found 40 text regions:
+
+[1] Text: A06002
+    Position: (614, 33) → (847, 109)
+    Size: 233x76 pixels
+
+[2] Text: UNIHAKKA INTERNATIONAL SDN BHD
+    Position: (122, 165) → (756, 209)
+    Size: 634x44 pixels
+
+[3] Text: 01 Jun 2018 18:41
+    Position: (323, 209) → (551, 240)
+    Size: 228x31 pixels
+
+[4] Text: (867388-U)
+    Position: (364, 249) → (516, 277)
+    Size: 152x28 pixels
+
+[5] Text: 12, Jalan Tampoi 7/4,Kawasan Perindustrian
+    Position: (162, 279) → (710, 321)
+    Size: 548x42 pixels
+
+[6] Text: Tampoi,81200 Johor Bahru,Johor
+    Position: (229, 321) → (640, 359)
+    Size: 411x38 pixels
+
+[7] Text: TAX INVOICE
+    Position: (343, 365) → (522, 394)
+    Size: 179x29 pixels
+
+[8] Text: Invoice #: OR18060102160261
+    Position: (89, 396) → (477, 432)
+    Size: 388x36 pixels
+
+[9] Text: Item
+    Position: (86, 450) → (143, 478)
+    Size: 57x28 pixels
+
+[10] Text: Qty
+    Position: (306, 454) → (357, 482)
+    Size: 51x28 pixels
+
+[11] Text: Total
+    Position: (709, 457) → (778, 486)
+    Size: 69x29 pixels
+
+[12] Text: SR I00100000061- 5 Vege
+    Position: (87, 495) → (421, 527)
+    Size: 334x32 pixels
+
+[13] Text: RM6.22
+    Position: (86, 537) → (172, 562)
+    Size: 86x25 pixels
+
+[14] Text: 1
+    Position: (303, 538) → (315, 562)
+    Size: 12x24 pixels
+
+[15] Text: RM6.22
+    Position: (675, 552) → (772, 579)
+    Size: 97x27 pixels
+
+[16] Text: SR I00100000001- Chicken
+    Position: (86, 594) → (431, 629)
+    Size: 345x35 pixels
+
+[17] Text: RM2.54
+    Position: (86, 636) → (172, 661)
+    Size: 86x25 pixels
+
+[18] Text: 1
+    Position: (303, 638) → (315, 661)
+    Size: 12x23 pixels
+
+[19] Text: RM2.54
+    Position: (675, 652) → (772, 680)
+    Size: 97x28 pixels
+
+[20] Text: Total Amount: RM8.76
+    Position: (496, 716) → (768, 748)
+    Size: 272x32 pixels
+
+[21] Text: GST @0%: RM0.00
+    Position: (524, 752) → (761, 782)
+    Size: 237x30 pixels
+
+[22] Text: Rounding: -RM0.01
+    Position: (528, 793) → (767, 821)
+    Size: 239x28 pixels
+
+[23] Text: Nett Total: RM8.75
+    Position: (533, 829) → (768, 859)
+    Size: 235x30 pixels
+
+[24] Text: Payment Mode
+    Position: (74, 883) → (259, 913)
+    Size: 185x30 pixels
+
+[25] Text: Amount
+    Position: (667, 892) → (768, 919)
+    Size: 101x27 pixels
+
+[26] Text: CASH
+    Position: (71, 927) → (151, 954)
+    Size: 80x27 pixels
+
+[27] Text: RM8.75
+    Position: (667, 937) → (768, 964)
+    Size: 101x27 pixels
+
+[28] Text: Change
+    Position: (71, 966) → (172, 994)
+    Size: 101x28 pixels
+
+[29] Text: RM0.00
+    Position: (667, 976) → (768, 1003)
+    Size: 101x27 pixels
+
+[30] Text: GST Summary
+    Position: (66, 1059) → (224, 1088)
+    Size: 158x29 pixels
+
+[31] Text: Amount(RM)
+    Position: (402, 1067) → (533, 1095)
+    Size: 131x28 pixels
+
+[32] Text: Tax(RM)
+    Position: (672, 1071) → (761, 1099)
+    Size: 89x28 pixels
+
+[33] Text: SR = GST @0%
+    Position: (66, 1105) → (224, 1134)
+    Size: 158x29 pixels
+
+[34] Text: 8.76
+    Position: (490, 1112) → (530, 1134)
+    Size: 40x22 pixels
+
+[35] Text: 0.00
+    Position: (714, 1115) → (743, 1136)
+    Size: 29x21 pixels
+
+[36] Text: GST REG #000656195584
+    Position: (245, 1165) → (577, 1197)
+    Size: 332x32 pixels
+
+[37] Text: BAR WANG RICE@PERMAS JAYA
+    Position: (186, 1203) → (632, 1238)
+    Size: 446x35 pixels
+
+[38] Text: Thank You & Come Again!
+    Position: (245, 1241) → (571, 1276)
+    Size: 326x35 pixels
+
+[39] Text: Like and Follow Us on Facebook!
+    Position: (202, 1281) → (607, 1318)
+    Size: 405x37 pixels
+
+[40] Text: Facebook.com/BarWangRice
+    Position: (225, 1322) → (585, 1357)
+    Size: 360x35 pixels
+
+======================================================================
+
+
+======================================================================
+EXAMPLE 4: Text Spotting (Word-level)
+======================================================================
+
+Image: ./assets/ocr/ocr_example2.jpg
+Prompt: Spotting all the text in the image with word-level, and output in JSON format as [{'bbox_2d': [x1, y1, x2, y2], 'text_content': 'text'}, ...].
+
+----------------------------------------------------------------------
+TEXT SPOTTING RESULT:
+----------------------------------------------------------------------
+
+Raw JSON output:
+```json
+[
+	{"bbox_2d": [182, 196, 944, 276], "text_content": "AuntieAnne's"},
+	{"bbox_2d": [82, 492, 426, 519], "text_content": "CINNAMON SUGAR"},
+	{"bbox_2d": [83, 530, 100, 553], "text_content": "1"},
+	{"bbox_2d": [166, 534, 186, 554], "text_content": "x"},
+	{"bbox_2d": [218, 530, 335, 554], "text_content": "17,000"},
+	{"bbox_2d": [783, 535, 907, 560], "text_content": "17,000"},
+	{"bbox_2d": [37, 584, 241, 610], "text_content": "SUBTOTAL"},
+	{"bbox_2d": [783, 592, 907, 617], "text_content": "17,000"},
+	{"bbox_2d": [35, 663, 300, 691], "text_content": "GRANDTOTAL"},
+	{"bbox_2d": [783, 674, 907, 699], "text_content": "17,000"},
+	{"bbox_2d": [34, 718, 212, 747], "text_content": "CASHIDR"},
+	{"bbox_2d": [780, 733, 906, 759], "text_content": "20,000"},
+	{"bbox_2d": [34, 776, 286, 804], "text_content": "CHANGEDUE"},
+	{"bbox_2d": [797, 786, 901, 811], "text_content": "3,000"}
+]
+```
+
+----------------------------------------------------------------------
+
+Image dimensions: 800x1180
+----------------------------------------------------------------------
+
+Found 14 text regions:
+
+[1] Text: AuntieAnne's
+    Position: (145, 231) → (755, 326)
+    Size: 610x95 pixels
+
+[2] Text: CINNAMON SUGAR
+    Position: (65, 581) → (341, 613)
+    Size: 276x32 pixels
+
+[3] Text: 1
+    Position: (66, 626) → (80, 653)
+    Size: 14x27 pixels
+
+[4] Text: x
+    Position: (132, 630) → (148, 654)
+    Size: 16x24 pixels
+
+[5] Text: 17,000
+    Position: (174, 626) → (268, 654)
+    Size: 94x28 pixels
+
+[6] Text: 17,000
+    Position: (627, 631) → (726, 661)
+    Size: 99x30 pixels
+
+[7] Text: SUBTOTAL
+    Position: (29, 689) → (192, 720)
+    Size: 163x31 pixels
+
+[8] Text: 17,000
+    Position: (627, 699) → (726, 728)
+    Size: 99x29 pixels
+
+[9] Text: GRANDTOTAL
+    Position: (28, 783) → (240, 816)
+    Size: 212x33 pixels
+
+[10] Text: 17,000
+    Position: (627, 796) → (726, 825)
+    Size: 99x29 pixels
+
+[11] Text: CASHIDR
+    Position: (27, 848) → (169, 882)
+    Size: 142x34 pixels
+
+[12] Text: 20,000
+    Position: (624, 865) → (725, 896)
+    Size: 101x31 pixels
+
+[13] Text: CHANGEDUE
+    Position: (27, 916) → (229, 949)
+    Size: 202x33 pixels
+
+[14] Text: 3,000
+    Position: (638, 928) → (721, 957)
+    Size: 83x29 pixels
+
+======================================================================
+
+
+======================================================================
+EXAMPLE 5: Visual Information Extraction
+======================================================================
+
+Image: ./assets/ocr/ocr_example3.jpg
+Keys to extract: {'company': '', 'date': '', 'address': '', 'total': ''}
+Prompt: Extract the key-value information in the format: {"company": "", "date": "", "address": "", "total": ""}
+
+----------------------------------------------------------------------
+EXTRACTION RESULT:
+----------------------------------------------------------------------
+
+```json
+{
+    "company": "UNIHAKKA INTERNATIONAL SDN BHD",
+    "date": "01 Jun 2018",
+    "address": "12, Jalan Tampoi 7/4,Kawasan Perindustrian Tampoi,81200 Johor Bahru,Johor",
+    "total": "RM8.75"
+}
+```
+
+----------------------------------------------------------------------
+Parsed JSON:
+----------------------------------------------------------------------
+{
+  "company": "UNIHAKKA INTERNATIONAL SDN BHD",
+  "date": "01 Jun 2018",
+  "address": "12, Jalan Tampoi 7/4,Kawasan Perindustrian Tampoi,81200 Johor Bahru,Johor",
+  "total": "RM8.75"
+}
+
+======================================================================
+
+
+======================================================================
+All examples completed!
+======================================================================
+
+To run custom OCR:
+1. Edit this script
+2. Use example_custom_ocr() function
+3. Provide your own image path and prompt
+
+Example:
+  example_custom_ocr('my_image.jpg', 'Extract all text')
+======================================================================
+

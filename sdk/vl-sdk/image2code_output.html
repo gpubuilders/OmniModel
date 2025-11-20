@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Oatmeal Chocolate Chip Muffins</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header button {
+            margin: 0 5px;
+            padding: 10px 15px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .header button:hover {
+            background-color: #777;
+        }
+        .options {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .options input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .options .btn-group {
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .btn-group button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-group button:hover {
+            background-color: #777;
+        }
+        .recipe-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .recipe-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .recipe-description {
+            margin-bottom: 20px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .info-grid .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-grid .info-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .info-grid .info-value {
+            margin-top: 5px;
+        }
+        .ingredients {
+            margin-bottom: 20px;
+        }
+        .ingredients h3 {
+            margin-top: 0;
+        }
+        .ingredients ul {
+            padding-left: 20px;
+        }
+        .instructions {
+            margin-bottom: 20px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+        }
+        .instructions ol {
+            padding-left: 20px;
+        }
+        .notes {
+            margin-bottom: 20px;
+        }
+        .notes h3 {
+            margin-top: 0;
+        }
+        .nutrition {
+            margin-top: 20px;
+        }
+        .nutrition h3 {
+            margin-top: 0;
+        }
+        .nutrition p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .recipe-image {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .recipe-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button>Go Back</button>
+        <button>Print</button>
+    </div>
+
+    <div class="options">
+        <div class="btn-group">
+            <input type="checkbox" id="recipeImage" checked>
+            <label for="recipeImage">Recipe Image</label>
+        </div>
+        <div class="btn-group">
+            <input type="checkbox" id="notes" checked>
+            <label for="notes">Notes</label>
+        </div>
+        <div class="btn-group">
+            <input type="checkbox" id="nutritionLabel" checked>
+            <label for="nutritionLabel">Nutrition Label</label>
+        </div>
+        <div class="btn-group">
+            <button>-</button>
+            <span id="serving-size">12</span>
+            <button>+</button>
+            <span>- 14 muffins</span>
+        </div>
+        <div class="btn-group">
+            <button>Smaller</button>
+            <button>Normal</button>
+            <button>Larger</button>
+        </div>
+    </div>
+
+    <div class="recipe-container">
+        <h1 class="recipe-title">Banana Oatmeal Chocolate Chip Muffins</h1>
+        <p class="recipe-description">Easy to make grab 'n go banana oatmeal muffins. It's oatmeal in muffin form!</p>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="info-label">Course</div>
+                <div class="info-value">Breakfast</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Cuisine</div>
+                <div class="info-value">American</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Prep Time</div>
+                <div class="info-value">10 minutes</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Cook Time</div>
+                <div class="info-value">20 minutes</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Total Time</div>
+                <div class="info-value">30 minutes</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Servings</div>
+                <div class="info-value">12 - 14 muffins</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Calories</div>
+                <div class="info-value">200 kcal</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Author</div>
+                <div class="info-value"><a href="#">Linda Warren</a></div>
+            </div>
+        </div>
+
+        <div class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <li>3 cups old fashioned oats</li>
+                <li>3 Tablespoons brown sugar</li>
+                <li>½ teaspoon cinnamon</li>
+                <li>¼ teaspoon salt</li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Preheat oven to 350 degrees. Spray a 12-cup muffin pan with a non-stick spray.</li>
+                <li>Combine dry ingredients in a large bowl.</li>
+                <li>In a medium bowl, mash bananas and whisk with the remaining ingredients except for chocolate chips.</li>
+                <li>Add the banana mixture to the dry ingredients.</li>
+            </ol>
+        </div>
+
+        <div class="notes">
+            <h3>Notes</h3>
+            <h4>STORE/FREEZE/REHEAT</h4>
+            <p><strong>To Store:</strong> Allow the muffins to cool completely. Place them in an airtight container at room temperature for up to 3 days or in the refrigerator for up to 1 week.</p>
+            <p><strong>To Freeze:</strong> Allow the muffins to cool completely.</p>
+            <p><strong>To Reheat:</strong> Microwave the muffins for about 30 seconds if thawed or 1 minute if frozen, or until heated through.</p>
+        </div>
+
+        <div class="nutrition">
+            <h3>Nutrition</h3>
+            <p>Calories: 200 kcal | Carbohydrates: 28 g | Protein: 6 g | Fat: 7 g | Saturated Fat: 3 g | Polyunsaturated Fat: 1 g | Monounsaturated Fat: 3 g | Trans Fat: 0.02 g | Cholesterol: 33 mg | Sodium: 82 mg | Potassium: 284 mg | Fiber: 3 g | Sugar: 12 g | Vitamin A: 135 IU | Vitamin C: 2 mg | Calcium: 107 mg | Iron: 1 mg</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Banana Oatmeal Chocolate Chip Muffins https://2cookinmamas.com/banana-oatmeal-muffins/
+    </div>
+</body>
+</html>

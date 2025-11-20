@@ -1,0 +1,149 @@
+============================================================
+Video Understanding with Local LLM
+============================================================
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Endpoint: http://localhost:8080/v1
+============================================================
+
+============================================================
+Testing API Connection...
+============================================================
+
+✓ API Connection Successful!
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Response: API connection successful!
+
+
+To run video examples, uncomment one of the following:
+  - example_1_video_url()           # Chinese video with table summary
+  - example_2_video_url_timestamps() # Event localization with timestamps
+  - example_3_frame_list()          # Cooking video frame list
+  - example_4_frame_list_math()     # Math video frame list
+  - example_5 with visualization    # Spatial-temporal grounding
+
+
+======================================================================
+EXAMPLE 1: Video URL Analysis (Chinese)
+======================================================================
+
+Video URL: https://duguang-labelling.oss-cn-shanghai.aliyuncs.com/qiansun/video_ocr/videos/50221078283.mp4
+Prompt: 请用表格总结一下视频中的商品特点 but in english
+
+Extracting frames...
+✓ Extracted 64 frames
+  Grid size: (10240, 5760)
+  You can save this grid with: image_grid.save('output_grid.jpg')
+
+Sending request to local API...
+ChatCompletion(id='chatcmpl-dbc1554bb96f4d938012f31a4b7d4040', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='| Feature | Description |\n|---------|-------------|\n| Wide Applicability | Suitable for longan, sliced watermelon, strawberries, cherries, etc. |\n| Snap Lock Design | Humanized design, easy to snap and not complicated. |\n| Secure Snap Lock | Top and bottom lids tightly lock, won’t fall off when shaken. |\n| Professional Aluminum Film | Made of PET material, finely crafted. |\n| Pressure and Impact Resistance | Withstands pressure and wear, resistant to low temperatures, suitable for refrigeration. |\n| Can Bear 12 Pounds of Bricks | Can bear 12 pounds of red bricks, won’t be damaged during transportation. |\n| Aesthetic and Practical | Clear texture, good quality, good shape, good gloss. |\n| High Transparency and Thickened | Products inside are clearly visible, colorless and odorless. |\n| Full Display | Allows for comprehensive product display. |', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=[], reasoning=None, reasoning_content=None), stop_reason=None, token_ids=None)], created=1763612088, model='Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=188, prompt_tokens=11679, total_tokens=11867, completion_tokens_details=None, prompt_tokens_details=None), prompt_logprobs=None, prompt_token_ids=None, kv_transfer_params=None)
+
+----------------------------------------------------------------------
+RESPONSE:
+----------------------------------------------------------------------
+| Feature | Description |
+|---------|-------------|
+| Wide Applicability | Suitable for longan, sliced watermelon, strawberries, cherries, etc. |
+| Snap Lock Design | Humanized design, easy to snap and not complicated. |
+| Secure Snap Lock | Top and bottom lids tightly lock, won’t fall off when shaken. |
+| Professional Aluminum Film | Made of PET material, finely crafted. |
+| Pressure and Impact Resistance | Withstands pressure and wear, resistant to low temperatures, suitable for refrigeration. |
+| Can Bear 12 Pounds of Bricks | Can bear 12 pounds of red bricks, won’t be damaged during transportation. |
+| Aesthetic and Practical | Clear texture, good quality, good shape, good gloss. |
+| High Transparency and Thickened | Products inside are clearly visible, colorless and odorless. |
+| Full Display | Allows for comprehensive product display. |
+======================================================================
+
+
+======================================================================
+EXAMPLE 2: Video Event Localization with Timestamps
+======================================================================
+
+Video URL: https://ofasys-multimodal-wlcb-3.oss-cn-wulanchabu.aliyuncs.com/sibo.ssb/datasets/cookbook/ead2e3f0e7f836c9ec51236befdaf2d843ac13a6.mp4
+Prompt: Localize a series of activity events in the video, output the start and end timestamp for each event, and describe each event with sentences. Provide the result in json format with 'mm:ss.ff' format for time depiction.
+
+Sending request to local API...
+ChatCompletion(id='chatcmpl-e1484da81fb948c89c8af3d6eb36e071', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```json\n[\n    {\n        "start_time": "00:00.00",\n        "end_time": "00:08.30",\n        "description": "A large piece of meat is sliced on a wooden board."\n    },\n    {\n        "start_time": "00:08.30",\n        "end_time": "00:37.00",\n        "description": "A large piece of raw meat is unwrapped and trimmed."\n    },\n    {\n        "start_time": "00:37.00",\n        "end_time": "00:55.30",\n        "description": "The meat is seasoned with salt and pepper."\n    },\n    {\n        "start_time": "00:55.30",\n        "end_time": "01:17.30",\n        "description": "The meat is placed on a grill."\n    },\n    {\n        "start_time": "01:17.30",\n        "end_time": "01:44.00",\n        "description": "A large pot is filled with vegetables and beer."\n    },\n    {\n        "start_time": "01:44.00",\n        "end_time": "02:02.80",\n        "description": "The meat is placed in the pot and covered with charcoal."\n    },\n    {\n        "start_time": "02:02.80",\n        "end_time": "02:19.00",\n        "description": "The meat is cooked in the pot."\n    },\n    {\n        "start_time": "02:19.00",\n        "end_time": "02:33.00",\n        "description": "The meat is removed from the pot and placed on a wooden board."\n    },\n    {\n        "start_time": "02:33.00",\n        "end_time": "02:55.70",\n        "description": "The meat is sliced on the wooden board."\n    },\n    {\n        "start_time": "02:55.70",\n        "end_time": "03:08.90",\n        "description": "A slice of meat is held up to the camera."\n    }\n]\n```', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=[], reasoning=None, reasoning_content=None), stop_reason=None, token_ids=None)], created=1763612100, model='Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=502, prompt_tokens=11726, total_tokens=12228, completion_tokens_details=None, prompt_tokens_details=None), prompt_logprobs=None, prompt_token_ids=None, kv_transfer_params=None)
+
+----------------------------------------------------------------------
+RESPONSE:
+----------------------------------------------------------------------
+```json
+[
+    {
+        "start_time": "00:00.00",
+        "end_time": "00:08.30",
+        "description": "A large piece of meat is sliced on a wooden board."
+    },
+    {
+        "start_time": "00:08.30",
+        "end_time": "00:37.00",
+        "description": "A large piece of raw meat is unwrapped and trimmed."
+    },
+    {
+        "start_time": "00:37.00",
+        "end_time": "00:55.30",
+        "description": "The meat is seasoned with salt and pepper."
+    },
+    {
+        "start_time": "00:55.30",
+        "end_time": "01:17.30",
+        "description": "The meat is placed on a grill."
+    },
+    {
+        "start_time": "01:17.30",
+        "end_time": "01:44.00",
+        "description": "A large pot is filled with vegetables and beer."
+    },
+    {
+        "start_time": "01:44.00",
+        "end_time": "02:02.80",
+        "description": "The meat is placed in the pot and covered with charcoal."
+    },
+    {
+        "start_time": "02:02.80",
+        "end_time": "02:19.00",
+        "description": "The meat is cooked in the pot."
+    },
+    {
+        "start_time": "02:19.00",
+        "end_time": "02:33.00",
+        "description": "The meat is removed from the pot and placed on a wooden board."
+    },
+    {
+        "start_time": "02:33.00",
+        "end_time": "02:55.70",
+        "description": "The meat is sliced on the wooden board."
+    },
+    {
+        "start_time": "02:55.70",
+        "end_time": "03:08.90",
+        "description": "A slice of meat is held up to the camera."
+    }
+]
+```
+======================================================================
+
+Error during API call: Error code: 400 - {'error': {'message': 'Unknown part type: video None', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+Traceback (most recent call last):
+  File "/home/shazam/dev/model-swapping-service/Research/qwen/vl-cookbooks/video_understanding_local.py", line 574, in <module>
+    main()
+  File "/home/shazam/dev/model-swapping-service/Research/qwen/vl-cookbooks/video_understanding_local.py", line 563, in main
+    example_3_frame_list()
+  File "/home/shazam/dev/model-swapping-service/Research/qwen/vl-cookbooks/video_understanding_local.py", line 280, in example_3_frame_list
+    response = inference_with_local_api(video, prompt, video_type='frame_list')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shazam/dev/model-swapping-service/Research/qwen/vl-cookbooks/video_understanding_local.py", line 176, in inference_with_local_api
+    completion = client.chat.completions.create(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1156, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Unknown part type: video None', 'type': 'BadRequestError', 'param': None, 'code': 400}}

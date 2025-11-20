@@ -1,0 +1,392 @@
+Requirement already satisfied: Pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (11.3.0)
+======================================================================
+Checking and installing dependencies...
+======================================================================
+Installing Pillow...
+✓ Pillow installed successfully
+
+✓ All dependencies installed!
+
+============================================================
+Spatial Understanding with Local LLM
+============================================================
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Endpoint: http://localhost:8080/v1
+============================================================
+
+============================================================
+Testing API Connection...
+============================================================
+
+✓ API Connection Successful!
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Response: API connection successful!
+
+
+To run spatial understanding examples, make sure you have the required assets in ./assets/spatial_understanding/
+
+Running spatial understanding examples...
+
+======================================================================
+EXAMPLE 1: Multi-Target Object Detection (Dining Table)
+======================================================================
+Image: ./assets/spatial_understanding/dining_table.png
+Prompt: locate every instance that belongs to the following categories: "plate/dish, scallop, wine bottle, tv, bowl, spoon, air conditioner, coconut drink, cup, chopsticks, person". Report bbox coordinates in JSON format.
+
+Response: ```json
+[
+	{"bbox_2d": [74, 364, 323, 808], "label": "plate/dish"},
+	{"bbox_2d": [321, 666, 565, 955], "label": "plate/dish"},
+	{"bbox_2d": [555, 576, 807, 900], "label": "plate/dish"},
+	{"bbox_2d": [742, 441, 1000, 901], "label": "plate/dish"},
+	{"bbox_2d": [486, 189, 742, 567], "label": "plate/dish"},
+	{"bbox_2d": [299, 133, 480, 394], "label": "plate/dish"},
+	{"bbox_2d": [282, 319, 607, 690], "label": "plate/dish"},
+	{"bbox_2d": [689, 180, 994, 497], "label": "plate/dish"},
+	{"bbox_2d": [0, 105, 201, 487], "label": "plate/dish"},
+	{"bbox_2d": [690, 239, 775, 331], "label": "scallop"},
+	{"bbox_2d": [759, 211, 855, 321], "label": "scallop"},
+	{"bbox_2d": [835, 202, 919, 307], "label": "scallop"},
+	{"bbox_2d": [733, 329, 833, 444], "label": "scallop"},
+	{"bbox_2d": [813, 312, 914, 440], "label": "scallop"},
+	{"bbox_2d": [890, 306, 983, 427], "label": "scallop"},
+	{"bbox_2d": [158, 0, 304, 353], "label": "wine bottle"},
+	{"bbox_2d": [462, 0, 588, 211], "label": "wine bottle"},
+	{"bbox_2d": [613, 73, 730, 212], "label": "bowl"},
+	{"bbox_2d": [255, 83, 332, 219], "label": "bowl"},
+	{"bbox_2d": [0, 801, 103, 1000], "label": "bowl"},
+	{"bbox_2d": [617, 937, 764, 1000], "label": "bowl"},
+	{"bbox_2d": [633, 51, 712, 181], "label": "spoon"},
+	{"bbox_2d": [726, 0, 866, 194], "label": "coconut drink"},
+	{"bbox_2d": [95, 813, 223, 999], "label": "cup"},
+	{"bbox_2d": [727, 841, 844, 1000], "label": "cup"},
+	{"bbox_2d": [897, 434, 999, 470], "label": "chopsticks"},
+	{"bbox_2d": [796, 803, 835, 1000], "label": "chopsticks"},
+	{"bbox_2d": [555, 855, 605, 1000], "label": "chopsticks"},
+	{"bbox_2d": [0, 0, 315, 52], "label": "person"}
+]
+```
+(640, 479)
+[Image would be displayed here in Jupyter]
+Image size: (640, 479)
+======================================================================
+
+
+======================================================================
+EXAMPLE 2: Detecting Objects in Crowded Scenes
+======================================================================
+Image: ./assets/spatial_understanding/lots_of_people.jpeg
+Prompt: Locate every instance that belongs to the following categories: "head, hand, man, woman, glasses". Report bbox coordinates in JSON format.
+
+Response: ```json
+[
+	{"bbox_2d": [37, 665, 167, 813], "label": "head"},
+	{"bbox_2d": [242, 668, 378, 838], "label": "head"},
+	{"bbox_2d": [436, 785, 568, 976], "label": "head"},
+	{"bbox_2d": [817, 698, 969, 876], "label": "head"},
+	{"bbox_2d": [640, 684, 765, 829], "label": "head"},
+	{"bbox_2d": [881, 516, 999, 652], "label": "head"},
+	{"bbox_2d": [914, 384, 999, 507], "label": "head"},
+	{"bbox_2d": [670, 502, 775, 639], "label": "head"},
+	{"bbox_2d": [715, 353, 817, 472], "label": "head"},
+	{"bbox_2d": [645, 237, 736, 352], "label": "head"},
+	{"bbox_2d": [546, 297, 641, 407], "label": "head"},
+	{"bbox_2d": [456, 375, 546, 494], "label": "head"},
+	{"bbox_2d": [435, 569, 576, 734], "label": "head"},
+	{"bbox_2d": [346, 479, 466, 602], "label": "head"},
+	{"bbox_2d": [181, 492, 284, 617], "label": "head"},
+	{"bbox_2d": [42, 467, 153, 592], "label": "head"},
+	{"bbox_2d": [117, 272, 224, 400], "label": "head"},
+	{"bbox_2d": [396, 257, 478, 379], "label": "head"},
+	{"bbox_2d": [443, 173, 516, 272], "label": "head"},
+	{"bbox_2d": [263, 183, 345, 293], "label": "head"},
+	{"bbox_2d": [312, 123, 384, 220], "label": "head"},
+	{"bbox_2d": [386, 58, 466, 158], "label": "head"},
+	{"bbox_2d": [497, 93, 568, 194], "label": "head"},
+	{"bbox_2d": [555, 16, 616, 112], "label": "head"},
+	{"bbox_2d": [689, 87, 765, 194], "label": "head"},
+	{"bbox_2d": [843, 245, 929, 357], "label": "head"},
+	{"bbox_2d": [870, 81, 950, 200], "label": "head"},
+	{"bbox_2d": [906, 15, 977, 109], "label": "head"},
+	{"bbox_2d": [702, 0, 775, 76], "label": "head"},
+	{"bbox_2d": [328, 0, 403, 72], "label": "head"},
+	{"bbox_2d": [156, 7, 233, 102], "label": "head"},
+	{"bbox_2d": [76, 16, 131, 81], "label": "head"},
+	{"bbox_2d": [0, 67, 62, 170], "label": "head"},
+	{"bbox_2d": [70, 164, 144, 270], "label": "head"},
+	{"bbox_2d": [76, 96, 152, 196], "label": "head"},
+	{"bbox_2d": [272, 58, 338, 158], "label": "head"},
+	{"bbox_2d": [0, 285, 38, 403], "label": "head"},
+	{"bbox_2d": [792, 917, 851, 1000], "label": "hand"},
+	{"bbox_2d": [165, 908, 261, 999], "label": "hand"},
+	{"bbox_2d": [27, 893, 107, 980], "label": "hand"},
+	{"bbox_2d": [304, 962, 376, 1000], "label": "hand"},
+	{"bbox_2d": [597, 887, 655, 957], "label": "hand"},
+	{"bbox_2d": [593, 639, 656, 722], "label": "hand"},
+	{"bbox_2d": [582, 573, 656, 665], "label": "hand"},
+	{"bbox_2d": [546, 502, 618, 586], "label": "hand"},
+	{"bbox_2d": [326, 587, 392, 679], "label": "hand"},
+	{"bbox_2d": [250, 617, 315, 698], "label": "hand"},
+	{"bbox_2d": [145, 387, 207, 472], "label": "hand"},
+	{"bbox_2d": [94, 362, 152, 447], "label": "hand"},
+	{"bbox_2d": [201, 242, 257, 328], "label": "hand"},
+	{"bbox_2d": [222, 96, 277, 181], "label": "hand"},
+	{"bbox_2d": [175, 130, 232, 203], "label": "hand"},
+	{"bbox_2d": [256, 126, 303, 207], "label": "hand"},
+	{"bbox_2d": [358, 342, 412, 417], "label": "hand"},
+	{"bbox_2d": [454, 335, 512, 398], "label": "hand"},
+	{"bbox_2d": [450, 67, 515, 164], "label": "hand"},
+	{"bbox_2d": [504, 254, 566, 330], "label": "hand"},
+	{"bbox_2d": [590, 47, 647, 145], "label": "hand"},
+	{"bbox_2d": [635, 375, 691, 467], "label": "hand"},
+	{"bbox_2d": [749, 245, 804, 326], "label": "hand"},
+	{"bbox_2d": [766, 128, 826, 212], "label": "hand"},
+	{"bbox_2d": [767, 35, 841, 125], "label": "hand"},
+	{"bbox_2d": [833, 584, 875, 685], "label": "hand"},
+	{"bbox_2d": [833, 441, 892, 507], "label": "hand"},
+	{"bbox_2d": [753, 312, 805, 379], "label": "hand"},
+	{"bbox_2d": [958, 282, 999, 364], "label": "hand"},
+	{"bbox_2d": [976, 76, 1000, 155], "label": "hand"},
+	{"bbox_2d": [922, 0, 978, 47], "label": "hand"},
+	{"bbox_2d": [0, 210, 36, 282], "label": "hand"},
+	{"bbox_2d": [0, 562, 23, 637], "label": "hand"},
+	{"bbox_2d": [0, 145, 19, 192], "label": "hand"},
+	{"bbox_2d": [52, 84, 72, 130], "label": "hand"},
+	{"bbox_2d": [113, 65, 162, 122], "label": "hand"},
+	{"bbox_2d": [150, 328, 424, 596], "label": "man"},
+	{"bbox_2d": [152, 7, 273, 168], "label": "man"},
+	{"bbox_2d": [565, 88, 787, 330], "label": "man"},
+	{"bbox_2d": [793, 79, 967, 342], "label": "man"},
+	{"bbox_2d": [0, 285, 111, 549], "label": "man"},
+	{"bbox_2d": [827, 12, 1000, 225], "label": "man"},
+	{"bbox_2d": [22, 665, 236, 999], "label": "woman"},
+	{"bbox_2d": [137, 494, 324, 826], "label": "woman"},
+	{"bbox_2d": [321, 479, 496, 802], "label": "woman"},
+	{"bbox_2d": [406, 569, 654, 808], "label": "woman"},
+	{"bbox_2d": [569, 684, 798, 999], "label": "woman"},
+	{"bbox_2d": [758, 697, 999, 999], "label": "woman"},
+	{"bbox_2d": [630, 502, 806, 760], "label": "woman"},
+	{"bbox_2d": [617, 353, 851, 626], "label": "woman"},
+	{"bbox_2d": [822, 516, 999, 812], "label": "woman"},
+	{"bbox_2d": [841, 384, 999, 579], "label": "woman"},
+	{"bbox_2d": [518, 297, 689, 562], "label": "woman"},
+	{"bbox_2d": [442, 375, 599, 597], "label": "woman"},
+	{"bbox_2d": [384, 257, 504, 487], "label": "woman"},
+	{"bbox_2d": [226, 183, 382, 380], "label": "woman"},
+	{"bbox_2d": [228, 122, 419, 303], "label": "woman"},
+	{"bbox_2d": [367, 58, 503, 240], "label": "woman"},
+	{"bbox_2d": [324, 0, 412, 107], "label": "woman"},
+	{"bbox_2d": [258, 57, 344, 214], "label": "woman"},
+	{"bbox_2d": [76, 16, 161, 130], "label": "woman"},
+	{"bbox_2d": [0, 67, 82, 240], "label": "woman"},
+	{"bbox_2d": [70, 96, 207, 305], "label": "woman"},
+	{"bbox_2d": [92, 272, 272, 476], "label": "woman"},
+	{"bbox_2d": [0, 467, 184, 740], "label": "woman"},
+	{"bbox_2d": [192, 668, 440, 999], "label": "woman"},
+	{"bbox_2d": [69, 168, 153, 258], "label": "woman"},
+	{"bbox_2d": [398, 785, 606, 1000], "label": "woman"},
+	{"bbox_2d": [545, 16, 620, 130], "label": "woman"},
+	{"bbox_2d": [689, 0, 777, 79], "label": "woman"},
+	{"bbox_2d": [695, 353, 795, 435], "label": "woman"},
+	{"bbox_2d": [774, 245, 946, 455], "label": "woman"},
+	{"bbox_2d": [52, 173, 166, 399], "label": "woman"},
+	{"bbox_2d": [308, 122, 382, 220], "label": "woman"},
+	{"bbox_2d": [497, 93, 570, 255], "label": "woman"},
+	{"bbox_2d": [326, 379, 366, 417], "label": "glasses"},
+	{"bbox_2d": [68, 195, 142, 225], "label": "glasses"},
+	{"bbox_2d": [52, 517, 121, 547], "label": "glasses"},
+	{"bbox_2d": [334, 11, 386, 31], "label": "glasses"},
+	{"bbox_2d": [443, 215, 509, 240], "label": "glasses"},
+	{"bbox_2d": [729, 399, 792, 425], "label": "glasses"},
+	{"bbox_2d": [398, 93, 457, 112], "label": "glasses"}
+]
+```
+(640, 639)
+[Image would be displayed here in Jupyter]
+Image size: (640, 639)
+======================================================================
+
+
+======================================================================
+EXAMPLE 3: Detecting Objects in Drone View Image
+======================================================================
+Image: ./assets/spatial_understanding/lots_of_cars.png
+Prompt: Locate every instance that belongs to the following categories: "car, bus, bicycle, pedestrian". Report bbox coordinates in JSON format.
+
+Response: ```json
+[
+	{"bbox_2d": [577, 776, 598, 857], "label": "car"},
+	{"bbox_2d": [646, 724, 669, 807], "label": "car"},
+	{"bbox_2d": [613, 652, 632, 735], "label": "car"},
+	{"bbox_2d": [580, 544, 600, 617], "label": "car"},
+	{"bbox_2d": [614, 492, 635, 576], "label": "car"},
+	{"bbox_2d": [642, 532, 664, 622], "label": "car"},
+	{"bbox_2d": [577, 365, 597, 444], "label": "car"},
+	{"bbox_2d": [636, 324, 658, 401], "label": "car"},
+	{"bbox_2d": [610, 274, 628, 352], "label": "car"},
+	{"bbox_2d": [574, 191, 594, 271], "label": "car"},
+	{"bbox_2d": [389, 378, 408, 445], "label": "car"},
+	{"bbox_2d": [416, 302, 435, 383], "label": "car"},
+	{"bbox_2d": [386, 182, 403, 259], "label": "car"},
+	{"bbox_2d": [351, 274, 372, 362], "label": "car"},
+	{"bbox_2d": [350, 110, 368, 187], "label": "car"},
+	{"bbox_2d": [348, 18, 365, 86], "label": "car"},
+	{"bbox_2d": [384, 37, 402, 124], "label": "car"},
+	{"bbox_2d": [453, 193, 471, 277], "label": "car"},
+	{"bbox_2d": [482, 161, 501, 247], "label": "car"},
+	{"bbox_2d": [482, 58, 500, 135], "label": "car"},
+	{"bbox_2d": [453, 86, 470, 160], "label": "car"},
+	{"bbox_2d": [454, 1, 470, 65], "label": "car"},
+	{"bbox_2d": [483, 0, 500, 27], "label": "car"},
+	{"bbox_2d": [576, 14, 593, 88], "label": "car"},
+	{"bbox_2d": [621, 25, 642, 105], "label": "car"},
+	{"bbox_2d": [598, 70, 617, 150], "label": "car"},
+	{"bbox_2d": [704, 111, 741, 176], "label": "car"},
+	{"bbox_2d": [763, 193, 806, 236], "label": "car"},
+	{"bbox_2d": [761, 298, 806, 334], "label": "car"},
+	{"bbox_2d": [812, 287, 835, 320], "label": "car"},
+	{"bbox_2d": [768, 348, 810, 383], "label": "car"},
+	{"bbox_2d": [790, 383, 831, 419], "label": "car"},
+	{"bbox_2d": [801, 422, 845, 463], "label": "car"},
+	{"bbox_2d": [836, 376, 854, 408], "label": "car"},
+	{"bbox_2d": [854, 417, 863, 447], "label": "car"},
+	{"bbox_2d": [956, 331, 977, 364], "label": "car"},
+	{"bbox_2d": [946, 378, 966, 410], "label": "car"},
+	{"bbox_2d": [983, 368, 1000, 400], "label": "car"},
+	{"bbox_2d": [994, 323, 1000, 354], "label": "car"},
+	{"bbox_2d": [970, 187, 998, 218], "label": "car"},
+	{"bbox_2d": [13, 861, 57, 900], "label": "car"},
+	{"bbox_2d": [0, 819, 24, 854], "label": "car"},
+	{"bbox_2d": [0, 764, 27, 798], "label": "car"},
+	{"bbox_2d": [33, 801, 67, 838], "label": "car"},
+	{"bbox_2d": [42, 749, 71, 781], "label": "car"},
+	{"bbox_2d": [229, 708, 263, 745], "label": "car"},
+	{"bbox_2d": [230, 746, 277, 784], "label": "car"},
+	{"bbox_2d": [172, 718, 198, 752], "label": "car"},
+	{"bbox_2d": [177, 771, 218, 807], "label": "car"},
+	{"bbox_2d": [188, 817, 228, 854], "label": "car"},
+	{"bbox_2d": [557, 923, 577, 997], "label": "car"},
+	{"bbox_2d": [590, 935, 611, 999], "label": "car"},
+	{"bbox_2d": [619, 917, 640, 999], "label": "car"},
+	{"bbox_2d": [653, 963, 673, 999], "label": "car"},
+	{"bbox_2d": [361, 873, 381, 901], "label": "bicycle"},
+	{"bbox_2d": [244, 873, 267, 901], "label": "bicycle"},
+	{"bbox_2d": [258, 899, 275, 935], "label": "bicycle"},
+	{"bbox_2d": [252, 593, 274, 642], "label": "pedestrian"},
+	{"bbox_2d": [484, 531, 492, 572], "label": "pedestrian"}
+]
+```
+(640, 360)
+[Image would be displayed here in Jupyter]
+Image size: (640, 360)
+======================================================================
+
+
+======================================================================
+EXAMPLE 4: Detecting Vehicles with Additional Information
+======================================================================
+Image: ./assets/spatial_understanding/drone_cars2.png
+Prompt: locate every instance that belongs to the following categories: "vehicle". For each vehicle, report bbox coordinates, vehicle type and vehicle color in JSON format like this: {"bbox_2d": [x1, y1, x2, y2], "label": "vehicle", "type": "car, bus, truck, bicycle, ...", "color": "vehicle_color"}
+
+Response: ```json
+[
+	{"bbox_2d": [355, 425, 380, 480], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [414, 355, 436, 404], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [429, 230, 450, 279], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [496, 607, 515, 677], "label": "vehicle", "type": "car", "color": "black"},
+	{"bbox_2d": [555, 649, 578, 715], "label": "vehicle", "type": "car", "color": "black"},
+	{"bbox_2d": [517, 875, 547, 962], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [407, 635, 433, 707], "label": "vehicle", "type": "car", "color": "light blue"},
+	{"bbox_2d": [375, 585, 400, 652], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [550, 444, 572, 497], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [553, 347, 574, 389], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [512, 207, 528, 239], "label": "vehicle", "type": "car", "color": "red"},
+	{"bbox_2d": [563, 220, 579, 254], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [558, 157, 573, 186], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [538, 173, 552, 202], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [538, 104, 552, 129], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [559, 88, 572, 114], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [578, 109, 592, 135], "label": "vehicle", "type": "car", "color": "light blue"},
+	{"bbox_2d": [595, 82, 610, 109], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [539, 63, 554, 86], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [556, 39, 570, 63], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [599, 47, 614, 70], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [579, 17, 594, 77], "label": "vehicle", "type": "bus", "color": "red"},
+	{"bbox_2d": [541, 0, 554, 18], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [562, 0, 574, 16], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [496, 0, 509, 27], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [679, 227, 695, 260], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [688, 274, 727, 301], "label": "vehicle", "type": "car", "color": "black"},
+	{"bbox_2d": [685, 293, 729, 320], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [685, 315, 729, 346], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [731, 260, 756, 286], "label": "vehicle", "type": "car", "color": "red"},
+	{"bbox_2d": [773, 237, 808, 278], "label": "vehicle", "type": "car", "color": "black"},
+	{"bbox_2d": [817, 356, 864, 402], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [825, 355, 860, 377], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [826, 403, 870, 430], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [868, 358, 911, 383], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [868, 378, 904, 404], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [877, 398, 920, 428], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [743, 403, 779, 455], "label": "vehicle", "type": "car", "color": "black"},
+	{"bbox_2d": [717, 470, 759, 510], "label": "vehicle", "type": "car", "color": "red"},
+	{"bbox_2d": [881, 824, 932, 916], "label": "vehicle", "type": "car", "color": "white"},
+	{"bbox_2d": [915, 818, 963, 910], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [951, 821, 999, 908], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [956, 911, 999, 999], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [930, 980, 972, 999], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [854, 933, 930, 999], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [306, 952, 338, 999], "label": "vehicle", "type": "car", "color": "gray"},
+	{"bbox_2d": [320, 388, 331, 413], "label": "vehicle", "type": "bicycle", "color": "gray"},
+	{"bbox_2d": [176, 903, 194, 943], "label": "vehicle", "type": "bicycle", "color": "gray"},
+	{"bbox_2d": [861, 456, 875, 483], "label": "vehicle", "type": "bicycle", "color": "gray"},
+	{"bbox_2d": [907, 467, 926, 496], "label": "vehicle", "type": "bicycle", "color": "gray"},
+	{"bbox_2d": [923, 467, 936, 496], "label": "vehicle", "type": "bicycle", "color": "gray"},
+	{"bbox_2d": [916, 432, 926, 446], "label": "vehicle", "type": "bicycle", "color": "gray"},
+	{"bbox_2d": [936, 431, 947, 446], "label": "vehicle", "type": "bicycle", "color": "gray"},
+	{"bbox_2d": [388, 60, 399, 80], "label": "vehicle", "type": "bicycle", "color": "gray"}
+]
+```
+(640, 480)
+[Image would be displayed here in Jupyter]
+Image size: (640, 480)
+======================================================================
+
+
+======================================================================
+EXAMPLE 5: Pointing out People in Football Field
+======================================================================
+Image: ./assets/spatial_understanding/football_field.jpg
+Prompt: Locate every person inside the football field with points, report their point coordinates, role(player, referee or unknown) and shirt color in JSON format like this: {"point_2d": [x, y], "label": "person", "role": "player/referee/unknown", "shirt_color": "the person's shirt color"}
+
+Response: ```json
+[
+	{"point_2d": [34, 624], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [148, 845], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [150, 360], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [169, 346], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [179, 287], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [293, 290], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [334, 255], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [346, 326], "label": "person", "role": "referee", "shirt_color": "black"},
+	{"point_2d": [483, 451], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [493, 410], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [526, 229], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [527, 253], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [654, 231], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [658, 155], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [763, 585], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [795, 343], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [824, 245], "label": "person", "role": "player", "shirt_color": "blue"},
+	{"point_2d": [978, 642], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [433, 147], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [443, 133], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [236, 160], "label": "person", "role": "player", "shirt_color": "red"},
+	{"point_2d": [244, 156], "label": "person", "role": "player", "shirt_color": "white"},
+	{"point_2d": [496, 105], "label": "person", "role": "referee", "shirt_color": "black"}
+]
+```
+[Image would be displayed here in Jupyter]
+Image size: (640, 360)
+======================================================================
+
+Done!

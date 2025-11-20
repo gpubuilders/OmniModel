@@ -1,0 +1,211 @@
+Requirement already satisfied: qwen-agent in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (0.0.31)
+Requirement already satisfied: dashscope>=1.11.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (1.25.1)
+Requirement already satisfied: eval_type_backport in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (0.3.0)
+Requirement already satisfied: json5 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (0.12.1)
+Requirement already satisfied: jsonlines in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (4.0.0)
+Requirement already satisfied: jsonschema in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (4.25.1)
+Requirement already satisfied: openai in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (2.6.1)
+Requirement already satisfied: pydantic>=2.3.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (2.12.4)
+Requirement already satisfied: requests in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (2.32.5)
+Requirement already satisfied: tiktoken in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (0.12.0)
+Requirement already satisfied: pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (11.3.0)
+Requirement already satisfied: dotenv in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (0.9.9)
+Requirement already satisfied: aiohttp in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dashscope>=1.11.0->qwen-agent) (3.13.2)
+Requirement already satisfied: websocket-client in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dashscope>=1.11.0->qwen-agent) (1.9.0)
+Requirement already satisfied: cryptography in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dashscope>=1.11.0->qwen-agent) (46.0.3)
+Requirement already satisfied: certifi in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dashscope>=1.11.0->qwen-agent) (2025.10.5)
+Requirement already satisfied: annotated-types>=0.6.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from pydantic>=2.3.0->qwen-agent) (0.7.0)
+Requirement already satisfied: pydantic-core==2.41.5 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from pydantic>=2.3.0->qwen-agent) (2.41.5)
+Requirement already satisfied: typing-extensions>=4.14.1 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from pydantic>=2.3.0->qwen-agent) (4.15.0)
+Requirement already satisfied: typing-inspection>=0.4.2 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from pydantic>=2.3.0->qwen-agent) (0.4.2)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (25.4.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (6.7.0)
+Requirement already satisfied: propcache>=0.2.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (0.4.1)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (1.22.0)
+Requirement already satisfied: idna>=2.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from yarl<2.0,>=1.17.0->aiohttp->dashscope>=1.11.0->qwen-agent) (3.11)
+Requirement already satisfied: cffi>=2.0.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from cryptography->dashscope>=1.11.0->qwen-agent) (2.0.0)
+Requirement already satisfied: pycparser in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from cffi>=2.0.0->cryptography->dashscope>=1.11.0->qwen-agent) (2.23)
+Requirement already satisfied: python-dotenv in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dotenv->qwen-agent) (1.2.1)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from jsonschema->qwen-agent) (2025.9.1)
+Requirement already satisfied: referencing>=0.28.4 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from jsonschema->qwen-agent) (0.37.0)
+Requirement already satisfied: rpds-py>=0.7.1 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from jsonschema->qwen-agent) (0.28.0)
+Requirement already satisfied: anyio<5,>=3.5.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (4.11.0)
+Requirement already satisfied: distro<2,>=1.7.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (1.9.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (0.28.1)
+Requirement already satisfied: jiter<1,>=0.10.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (0.11.1)
+Requirement already satisfied: sniffio in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (1.3.1)
+Requirement already satisfied: tqdm>4 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (4.67.1)
+Requirement already satisfied: httpcore==1.* in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from httpx<1,>=0.23.0->openai->qwen-agent) (1.0.9)
+Requirement already satisfied: h11>=0.16 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->openai->qwen-agent) (0.16.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from requests->qwen-agent) (3.4.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from requests->qwen-agent) (2.5.0)
+Requirement already satisfied: regex>=2022.1.18 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from tiktoken->qwen-agent) (2025.10.23)
+Requirement already satisfied: pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (11.3.0)
+2025-11-20 04:14:17,518 - base.py - 780 - INFO - ALL tokens: 22, Available tokens: 57838
+======================================================================
+Checking and installing dependencies...
+======================================================================
+Installing qwen-agent...
+✓ qwen-agent installed successfully
+Installing pillow...
+✓ pillow installed successfully
+
+✓ All dependencies installed!
+
+======================================================================
+Think with Images - Local LLM Version
+======================================================================
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Server: http://localhost:8080/v1
+======================================================================
+
+======================================================================
+Testing Local LLM Connection
+======================================================================
+
+✓ Server is accessible at http://localhost:8080/v1
+
+Available models:
+    LFM2-1.2B-Tool-Q4_K_M-cuda
+    LFM2-8B-A1B-BF16-cpu
+    LFM2-8B-A1B-BF16-cuda
+    LFM2-8B-A1B-UD-Q3_K_XL-cpu
+    LFM2-8B-A1B-UD-Q3_K_XL-cuda
+    qwen3_coder_reap_25b_A3B_IQ4_XS
+    qwen3_vl_30b_instruct
+    qwen3_vl_30b_thinking
+    Qwen3-0.6B-vllm
+    Qwen3-1.7B-vllm
+    Qwen3-4B-Instruct-2507-vllm
+    Qwen3-8B-vllm
+    Qwen3-Omni-10k
+    Qwen3-Omni-2k
+  ✓ Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm (target model)
+    Qwen3-VL-8B-Instruct-AWQ-8bit-74k-vllm
+    SmallThinker-4B-A0.6B-Instruct_Q8_0
+    vibeThinker
+
+✓ Target model 'Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm' is available!
+
+======================================================================
+Ready to run examples!
+======================================================================
+
+Running examples... (This may take a few minutes)
+
+
+======================================================================
+EXAMPLE 1: Zoom-in Assistant
+======================================================================
+
+This example demonstrates visual analysis with zoom-in capability.
+The agent can zoom into specific regions to get more details.
+
+Initializing agent with zoom-in capability...
+
+Image URL: https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg
+Question: What can you see in this image? Please analyze it in detail.
+
+----------------------------------------------------------------------
+AGENT RESPONSE:
+----------------------------------------------------------------------
+
+[ANSWER]
+I'll analyze this image in detail for you.
+
+**First, look closely:**
+The image shows a woman and a dog on a sandy beach, with the ocean in the background. The lighting suggests it's either sunrise or sunset, creating a warm, golden glow. The woman is sitting on the sand, smiling as she interacts with the dog. The dog, which appears to be a Labrador Retriever, is sitting upright and reaching its paw toward the woman's hand, possibly for a high-five or treat. The woman is wearing a plaid shirt and dark pants, and the dog is wearing a colorful harness. There's also a leash lying on the sand near the dog.
+
+To get more specific details about the dog breed, the exact design of the harness, or any other subtle elements, I'll need to zoom in on some key areas.
+
+**Next, find information:**
+I'll start by zooming in on the dog to get a better look at its features and the harness.
+
+
+[TOOL_CALL] image_zoom_in_tool
+{"label": "close-up of the dog", "bbox_2d": [220, 427, 583, 886], "img_idx": 0}
+[TOOL_CALL] image_zoom_in_tool
+{"label": "close-up of the dog's harness", "bbox_2d": [354, 541, 479, 700], "img_idx": 0}
+[TOOL_CALL] image_zoom_in_tool
+{"label": "close-up of the woman's face and upper body", "bbox_2d": [450, 382, 734, 794], "img_idx": 0}
+[TOOL_RESPONSE] image_zoom_in_tool
+
+<PIL.PngImagePlugin.PngImageFile image mode=RGB size=736x640 at 0x73E0368B83E0>
+
+[TOOL_RESPONSE] image_zoom_in_tool
+
+<PIL.PngImagePlugin.PngImageFile image mode=RGB size=576x480 at 0x73E0368F18B0>
+
+[TOOL_RESPONSE] image_zoom_in_tool
+2025-11-20 04:14:31,173 - base.py - 780 - INFO - ALL tokens: 400, Available tokens: 57838
+
+<PIL.PngImagePlugin.PngImageFile image mode=RGB size=576x576 at 0x73E03590FF50>
+
+[ANSWER]
+Based on the detailed analysis of the image, here is a comprehensive description:
+
+**Overall Scene:**
+The image captures a heartwarming moment between a woman and her dog on a sandy beach during what appears to be either sunrise or sunset. The warm, golden light creates a serene and joyful atmosphere.
+
+**The Dog:**
+- **Breed:** Based on its physical characteristics (short, dense, golden-colored coat; broad head; floppy ears; sturdy build), the dog is most likely a Labrador Retriever.
+- **Posture:** It is sitting upright on the sand, reaching its front paw toward the woman's hand in what looks like a high-five gesture.
+- **Equipment:** The dog is wearing a harness that has a dark blue or black base with colorful, multi-colored paw print patterns. A red leash is attached to the harness and lies on the sand nearby.
+
+**The Woman:**
+- **Appearance:** She has long, dark hair and is smiling warmly as she interacts with the dog.
+- **Attire:** She is wearing a plaid shirt (with a pattern of dark and light colors) and dark pants. She is barefoot on the sand.
+- **Action:** She is sitting cross-legged on the sand, extending her hand to meet the dog's paw. In her other hand, she appears to be holding a small treat or piece of food.
+
+**Environment:**
+- **Location:** They are on a sandy beach with ocean waves visible in the background.
+- **Lighting:** The lighting suggests the photo was taken during the "golden hour" – either shortly after sunrise or before sunset – which casts a warm, soft glow over the entire scene.
+
+**Interaction:**
+The central focus of the image is the positive interaction between the woman and her dog. The dog's enthusiastic gesture and the woman's happy expression convey a strong bond and affection between them.
+
+In summary, this is a beautiful photograph capturing a moment of connection and joy between a woman and her Labrador Retriever on a beach at sunrise or sunset.2025-11-20 04:14:37,920 - base.py - 780 - INFO - ALL tokens: 33, Available tokens: 57981
+
+======================================================================
+
+
+======================================================================
+EXAMPLE 2: Multi-functional Assistant (Zoom + Search)
+======================================================================
+
+⚠ WARNING: Search API keys not found!
+To enable image search functionality, set these environment variables:
+  export SERPER_API_KEY='your_key_here'
+  export SERPAPI_IMAGE_SEARCH_KEY='your_key_here'
+
+Proceeding with zoom-in only...
+
+Initializing multi-functional agent...
+Image URL: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/320px-Google_2015_logo.svg.png
+Question: Describe this logo in detail. What company does it belong to?
+
+----------------------------------------------------------------------
+AGENT RESPONSE:
+----------------------------------------------------------------------
+
+
+✗ Error: Error code: 500 - {'error': {'message': "403, message='Forbidden', url='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/320px-Google_2015_logo.svg.png'", 'type': 'Internal Server Error', 'param': None, 'code': 500}}
+
+Possible issues:
+1. Local server might not support these tools
+2. Image URL might not be accessible
+3. Search API keys might be invalid (if search enabled)
+
+======================================================================
+All examples completed!
+======================================================================
+
+To run custom examples:
+1. Edit this script
+2. Uncomment example_2 or example_3
+3. Modify image URLs and questions as needed
+======================================================================
+

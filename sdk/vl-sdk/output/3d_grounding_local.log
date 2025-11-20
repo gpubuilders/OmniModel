@@ -1,0 +1,85 @@
+Requirement already satisfied: Pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (11.3.0)
+Requirement already satisfied: opencv-python in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (4.12.0.88)
+Requirement already satisfied: numpy<2.3.0,>=2 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from opencv-python) (2.2.6)
+======================================================================
+Checking and installing dependencies...
+======================================================================
+Installing Pillow...
+✓ Pillow installed successfully
+Installing opencv-python...
+✓ opencv-python installed successfully
+
+✓ All dependencies installed!
+
+============================================================
+3D Grounding with Local LLM
+============================================================
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Endpoint: http://localhost:8080/v1
+============================================================
+
+============================================================
+Testing API Connection...
+============================================================
+
+✓ API Connection Successful!
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Response: API connection successful!
+
+
+To run 3D grounding examples, make sure you have the required assets in ./assets/spatial_understanding/
+
+Running 3D grounding examples...
+
+======================================================================
+EXAMPLE 1: Detect All Cars in Autonomous Driving Scene
+======================================================================
+Image: ./assets/spatial_understanding/autonomous_driving.jpg
+Prompt: Find all cars in this image. For each car, provide its 3D bounding box. The output format required is JSON: `[{"bbox_3d":[x_center, y_center, z_center, x_size, y_size, z_size, roll, pitch, yaw],"label":"category"}]`.
+
+Response: ```json
+[{"bbox_3d":[2.75, 0.62, 14.25, 4.75, 1.61, 1.91, 0.94, 0.48, 0.94],"label":"car"},{"bbox_3d":[2.79, 0.63, 6.27, 4.32, 1.72, 1.85, 0.94, 0.48, 0.94],"label":"car"}]
+```
+Parsed bbox_3d_results: [{'bbox_3d': [2.75, 0.62, 14.25, 4.75, 1.61, 1.91, 0.94, 0.48, 0.94], 'label': 'car'}, {'bbox_3d': [2.79, 0.63, 6.27, 4.32, 1.72, 1.85, 0.94, 0.48, 0.94], 'label': 'car'}]
+======================================================================
+
+
+======================================================================
+EXAMPLE 2: Detect Specific Object Using Descriptions
+======================================================================
+Image: ./assets/spatial_understanding/office.jpg
+Prompt: Locate the black chair in image and provide 3D bounding boxes results in JSON format.
+
+Response: ```json
+[{"bbox_3d": [-0.43, -0.31, 3.02, 0.7, 0.94, 0.6, 0.17, 0.18, 0.1], "label": "black chair"}]
+```
+Parsed bbox_3d_results: [{'bbox_3d': [-0.43, -0.31, 3.02, 0.7, 0.94, 0.6, 0.17, 0.18, 0.1], 'label': 'black chair'}]
+======================================================================
+
+
+======================================================================
+EXAMPLE 3: Detect Multiple Objects Simultaneously
+======================================================================
+Image: ./assets/spatial_understanding/lounge.jpg
+Prompt: 在提供的图像里定位桌子、椅子和沙发，输出对应的三维边界框。格式为：[{"bbox_3d":[x_center, y_center, z_center, x_size, y_size, z_size, roll, pitch, yaw],"label":"类别"}]。
+
+Response: ```json
+[{"bbox_3d": [0.28, 0.12, 2.11, 0.65, 0.74, 1.51, 0.87, 0.1, 0.94], "label": "桌子"}, {"bbox_3d": [0.14, 0.22, 1.73, 0.61, 0.85, 0.55, 0.13, -0.12, -0.06], "label": "椅子"}, {"bbox_3d": [-0.05, 0.0, 2.26, 0.56, 0.84, 0.52, 0.13, -0.12, -0.06], "label": "椅子"}, {"bbox_3d": [-0.87, -0.25, 3.35, 0.87, 0.71, 2.25, 0.25, 0.32, 0.21], "label": "沙发"}]
+```
+Parsed bbox_3d_results: [{'bbox_3d': [0.28, 0.12, 2.11, 0.65, 0.74, 1.51, 0.87, 0.1, 0.94], 'label': '桌子'}, {'bbox_3d': [0.14, 0.22, 1.73, 0.61, 0.85, 0.55, 0.13, -0.12, -0.06], 'label': '椅子'}, {'bbox_3d': [-0.05, 0.0, 2.26, 0.56, 0.84, 0.52, 0.13, -0.12, -0.06], 'label': '椅子'}, {'bbox_3d': [-0.87, -0.25, 3.35, 0.87, 0.71, 2.25, 0.25, 0.32, 0.21], 'label': '沙发'}]
+======================================================================
+
+
+======================================================================
+EXAMPLE 4: Using Custom Camera Parameters
+======================================================================
+Image: ./assets/spatial_understanding/manipulation.jpg
+Prompt: Detect the bottle in the image and predict the 3D box. Output JSON: [{"bbox_3d":[x_center, y_center, z_center, x_size, y_size, z_size, roll, pitch, yaw],"label":"category"}].
+
+Response: ```json
+[{"bbox_3d":[0.04, -0.04, 0.65, 0.07, 0.14, 0.08, 0.77, 0.0, 0.99],"label":"bottle"}]
+```
+Parsed bbox_3d_results: [{'bbox_3d': [0.04, -0.04, 0.65, 0.07, 0.14, 0.08, 0.77, 0.0, 0.99], 'label': 'bottle'}]
+======================================================================
+
+Done!

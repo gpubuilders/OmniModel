@@ -1,0 +1,313 @@
+Requirement already satisfied: Pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (11.3.0)
+Requirement already satisfied: beautifulsoup4 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (4.14.2)
+Requirement already satisfied: soupsieve>1.2 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from beautifulsoup4) (2.8)
+Requirement already satisfied: typing-extensions>=4.0.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from beautifulsoup4) (4.15.0)
+Requirement already satisfied: qwen-agent in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (0.0.31)
+Requirement already satisfied: dashscope>=1.11.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (1.25.1)
+Requirement already satisfied: eval_type_backport in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (0.3.0)
+Requirement already satisfied: json5 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (0.12.1)
+Requirement already satisfied: jsonlines in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (4.0.0)
+Requirement already satisfied: jsonschema in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (4.25.1)
+Requirement already satisfied: openai in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (2.6.1)
+Requirement already satisfied: pydantic>=2.3.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (2.12.4)
+Requirement already satisfied: requests in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (2.32.5)
+Requirement already satisfied: tiktoken in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (0.12.0)
+Requirement already satisfied: pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (11.3.0)
+Requirement already satisfied: dotenv in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-agent) (0.9.9)
+Requirement already satisfied: aiohttp in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dashscope>=1.11.0->qwen-agent) (3.13.2)
+Requirement already satisfied: websocket-client in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dashscope>=1.11.0->qwen-agent) (1.9.0)
+Requirement already satisfied: cryptography in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dashscope>=1.11.0->qwen-agent) (46.0.3)
+Requirement already satisfied: certifi in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dashscope>=1.11.0->qwen-agent) (2025.10.5)
+Requirement already satisfied: annotated-types>=0.6.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from pydantic>=2.3.0->qwen-agent) (0.7.0)
+Requirement already satisfied: pydantic-core==2.41.5 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from pydantic>=2.3.0->qwen-agent) (2.41.5)
+Requirement already satisfied: typing-extensions>=4.14.1 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from pydantic>=2.3.0->qwen-agent) (4.15.0)
+Requirement already satisfied: typing-inspection>=0.4.2 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from pydantic>=2.3.0->qwen-agent) (0.4.2)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (25.4.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (6.7.0)
+Requirement already satisfied: propcache>=0.2.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (0.4.1)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from aiohttp->dashscope>=1.11.0->qwen-agent) (1.22.0)
+Requirement already satisfied: idna>=2.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from yarl<2.0,>=1.17.0->aiohttp->dashscope>=1.11.0->qwen-agent) (3.11)
+Requirement already satisfied: cffi>=2.0.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from cryptography->dashscope>=1.11.0->qwen-agent) (2.0.0)
+Requirement already satisfied: pycparser in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from cffi>=2.0.0->cryptography->dashscope>=1.11.0->qwen-agent) (2.23)
+Requirement already satisfied: python-dotenv in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from dotenv->qwen-agent) (1.2.1)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from jsonschema->qwen-agent) (2025.9.1)
+Requirement already satisfied: referencing>=0.28.4 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from jsonschema->qwen-agent) (0.37.0)
+Requirement already satisfied: rpds-py>=0.7.1 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from jsonschema->qwen-agent) (0.28.0)
+Requirement already satisfied: anyio<5,>=3.5.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (4.11.0)
+Requirement already satisfied: distro<2,>=1.7.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (1.9.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (0.28.1)
+Requirement already satisfied: jiter<1,>=0.10.0 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (0.11.1)
+Requirement already satisfied: sniffio in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (1.3.1)
+Requirement already satisfied: tqdm>4 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from openai->qwen-agent) (4.67.1)
+Requirement already satisfied: httpcore==1.* in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from httpx<1,>=0.23.0->openai->qwen-agent) (1.0.9)
+Requirement already satisfied: h11>=0.16 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->openai->qwen-agent) (0.16.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from requests->qwen-agent) (3.4.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from requests->qwen-agent) (2.5.0)
+Requirement already satisfied: regex>=2022.1.18 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from tiktoken->qwen-agent) (2025.10.23)
+======================================================================
+Checking and installing dependencies...
+======================================================================
+Installing Pillow...
+✓ Pillow installed successfully
+Installing beautifulsoup4...
+✓ beautifulsoup4 installed successfully
+Installing qwen-agent...
+✓ qwen-agent installed successfully
+
+✓ All dependencies installed!
+
+============================================================
+Document Parsing with Local LLM
+============================================================
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Endpoint: http://localhost:8080/v1
+============================================================
+
+============================================================
+Testing API Connection...
+============================================================
+
+✓ API Connection Successful!
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Response: API connection successful!
+
+
+Running document parsing examples...
+
+======================================================================
+EXAMPLE 1: Document Parsing in QwenVL HTML Format
+======================================================================
+Image URL: https://ofasys-multimodal-wlcb-3-toshanghai.oss-cn-shanghai.aliyuncs.com/Qwen3VL/demo/omni_parsing/179729.jpg
+Prompt: qwenvl html
+
+Response: ```html
+<html><body>
+<div class="image" data-bbox="106 30 452 75"><img data-bbox="106 30 452 75"/></div>
+<div class="image" data-bbox="764 51 927 90"><img data-bbox="764 51 927 90"/></div>
+<div class="image" data-bbox="14 48 43 143"><img data-bbox="14 48 43 143"/></div>
+<div class="image" data-bbox="14 266 43 408"><img data-bbox="14 266 43 408"/></div>
+<div class="image" data-bbox="18 579 46 696"><img data-bbox="18 579 46 696"/></div>
+<div class="image" data-bbox="90 101 345 126"><img data-bbox="90 101 345 126"/></div>
+<div class="image" data-bbox="91 139 487 167"><img data-bbox="91 139 487 167"/></div>
+<div class="image" data-bbox="107 200 259 223"><img data-bbox="107 200 259 223"/></div>
+<div class="image" data-bbox="107 241 245 258"><img data-bbox="107 241 245 258"/></div>
+<div class="image" data-bbox="107 274 170 287"><img data-bbox="107 274 170 287"/></div>
+<div class="image" data-bbox="107 296 386 448"><table><tbody><tr><td>行业</td><td>汽车和汽车零部件</td></tr><tr><td>公司网址</td><td>www.yutong.com</td></tr><tr><td>大股东/持股</td><td>宇通集团/37.19%</td></tr><tr><td>总股本(百万股)</td><td>2,214</td></tr><tr><td>流通A股(百万股)</td><td>1,903</td></tr><tr><td>流通B/H股(百万股)</td><td>0</td></tr><tr><td>总市值(亿元)</td><td>488.39</td></tr><tr><td>流通A股市值(亿元)</td><td>419.91</td></tr><tr><td>每股净资产(元)</td><td>6.28</td></tr><tr><td>资产负债率(%)</td><td>52.30</td></tr></tbody></table></div>
+<div class="image" data-bbox="107 454 184 467"><img data-bbox="107 454 184 467"/></div>
+<div class="image" data-bbox="109 477 377 593"><img data-bbox="109 477 377 593"/></div>
+<div class="image" data-bbox="107 606 200 619"><img data-bbox="107 606 200 619"/></div>
+<div class="image" data-bbox="107 630 386 681"><p>《宇通客车*600066* 6月销量创年内新高, 校车近期有望放量》 2017-07-04</p><p>《宇通客车*600066* 没有一个冬天不可逾越，终将回暖》 2017-06-07</p></div>
+<div class="image" data-bbox="107 687 185 700"><img data-bbox="107 687 185 700"/></div>
+<div class="image" data-bbox="107 711 370 812"><table><tbody><tr><td>王德安</td><td>投资咨询资格编号S1060511010006021-38638428WANGDEAN002@PINGAN.COM.CN</td></tr><tr><td>余兵</td><td>投资咨询资格编号S1060511010004021-38636729YUBING006@PINGAN.COM.CN</td></tr></tbody></table></div>
+<div class="image" data-bbox="107 822 170 835"><img data-bbox="107 822 170 835"/></div>
+<div class="image" data-bbox="107 846 266 878"><table><tbody><tr><td>杨献宇</td><td>一般从业资格编号S106011701003018818203151</td></tr></tbody></table></div>
+<div class="image" data-bbox="101 890 331 945"><p>请通过合法途径获取本公司研究报告，如经由未经许可的渠道获得研究报告，请慎重使用并注意阅读研究报告尾页的声明内容。</p></div>
+<div class="image" data-bbox="73 955 216 965"><img data-bbox="73 955 216 965"/></div>
+<div class="image" data-bbox="410 209 518 230"><img data-bbox="410 209 518 230"/></div>
+<div class="image" data-bbox="410 240 459 257"><img data-bbox="410 240 459 257"/></div>
+<div class="image" data-bbox="410 264 926 292"><p>公司公布7月份产销数据，7月份销售客车5038辆（+20%），1~7月累计销售26872辆（-20.9%）。</p></div>
+<div class="image" data-bbox="410 315 500 332"><img data-bbox="410 315 500 332"/></div>
+<div class="image" data-bbox="410 345 927 430"><p>7 月销量同比转正，预计校车有较好销量：公司 7 月份销售客车 5038 辆（+20%），其中大型、中型、轻型客车分别销售 2007（+17%）、2371（+23.8%），660（+16%）；累计销售 26872 辆（-20.9%）。7 月份销量同比转正，结束了三个月的负增长，我们认为校车或在 7 月和 8 月有较好销量。</p></div>
+<div class="image" data-bbox="410 441 927 561"><p>新能源客车持续回暖，公交市场长期需求稳定：根据中客网数据，公司 6 月份销售新能源客车 1864 辆，同比转正。我们预计公司 7 月新能源销量仍然实现正增长。目前新能源客车市场逐步回暖，预计三季度实现同比正增长无忧，四季度有望放量。近期我们在客车市场进行终端调研，公交车司机普遍喜欢开新能源客车，认为新能源客车的驾驶体验和乘坐体验都更好。我们认为新能源公交车市场是刚需市场，长期看，需求和销量无需担忧。购买团体运营客车的客户，在一定范围内可以接受新能源客车的涨价。</p></div>
+<div class="image" data-bbox="410 573 927 657"><p>T7 前景看好，出口有望增长 10%：根据我们终端了解，T7 的市场认可度不断提高，今年有望实现 1000 台的销量。T7 的售价在 36.8 万~78.8 万之间，我们预计该车的盈利能力强，可以为公司贡献较好利润。目前公司在海外市场的布局稳步推进，产品竞争力强，我们认为今年出口销量有望实现 10%的增长。</p></div>
+<div class="image" data-bbox="410 669 927 717"><p>盈利预测与投资建议：补贴退坡使得客车市场的集中度提高，我们认为公司的优势将不断扩大。维持对公司的盈利预测，2017~2019 年每股收益为 1.95 元、2.18 元、2.28 元，维持“推荐”评级。</p></div>
+<div class="image" data-bbox="410 728 861 742"><p>风险提示：1）新能源车销量低于预期；2）成本下降不及预期。</p></div>
+<div class="image" data-bbox="410 766 930 929"><table><tbody><tr><td>2015A</td><td>2016A</td><td>2017E</td><td>2018E</td><td>2019E</td></tr><tr><td>营业收入(百万元)</td><td>31211</td><td>35,850</td><td>38,715</td><td>43,226</td><td>46,108</td></tr><tr><td>YoY(%)</td><td>21.3</td><td>14.9</td><td>8.0</td><td>11.7</td><td>6.7</td></tr><tr><td>净利润(百万元)</td><td>3535</td><td>4,044</td><td>4,327</td><td>4,821</td><td>5,056</td></tr><tr><td>YoY(%)</td><td>35.3</td><td>14.4</td><td>7.0</td><td>11.4</td><td>4.9</td></tr><tr><td>毛利率(%)</td><td>25.3</td><td>27.8</td><td>26.8</td><td>26.7</td><td>26.5</td></tr><tr><td>净利率(%)</td><td>11.3</td><td>11.3</td><td>11.2</td><td>11.2</td><td>11.0</td></tr><tr><td>ROE(%)</td><td>27.7</td><td>30.0</td><td>27.6</td><td>26.4</td><td>24.2</td></tr><tr><td>EPS(摊薄/元)</td><td>1.60</td><td>1.83</td><td>1.95</td><td>2.18</td><td>2.28</td></tr><tr><td>P/E(倍)</td><td>13.8</td><td>12.1</td><td>11.3</td><td>10.1</td><td>9.7</td></tr><tr><td>P/B(倍)</td><td>3.8</td><td>3.6</td><td>3.1</td><td>2.7</td><td>2.3</td></tr></tbody></table></div>
+</body></html>
+```
+Image size: 1920 x 1376
+[Image would be displayed here in Jupyter]
+Image size: (1376, 1920)
+
+Cleaned HTML:
+```html
+<html><body>
+<div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><table><tbody><tr><td>行业</td><td>汽车和汽车零部件</td></tr><tr><td>公司网址</td><td>www.yutong.com</td></tr><tr><td>大股东/持股</td><td>宇通集团/37.19%</td></tr><tr><td>总股本(百万股)</td><td>2,214</td></tr><tr><td>流通A股(百万股)</td><td>1,903</td></tr><tr><td>流通B/H股(百万股)</td><td>0</td></tr><tr><td>总市值(亿元)</td><td>488.39</td></tr><tr><td>流通A股市值(亿元)</td><td>419.91</td></tr><tr><td>每股净资产(元)</td><td>6.28</td></tr><tr><td>资产负债率(%)</td><td>52.30</td></tr></tbody></table></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><p>《宇通客车*600066* 6月销量创年内新高, 校车近期有望放量》 2017-07-04</p><p>《宇通客车*600066* 没有一个冬天不可逾越，终将回暖》 2017-06-07</p></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><table><tbody><tr><td>王德安</td><td>投资咨询资格编号S1060511010006021-38638428WANGDEAN002@PINGAN.COM.CN</td></tr><tr><td>余兵</td><td>投资咨询资格编号S1060511010004021-38636729YUBING006@PINGAN.COM.CN</td></tr></tbody></table></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><table><tbody><tr><td>杨献宇</td><td>一般从业资格编号S106011701003018818203151</td></tr></tbody></table></div> 
+ <div class="image"><p>请通过合法途径获取本公司研究报告，如经由未经许可的渠道获得研究报告，请慎重使用并注意阅读研究报告尾页的声明内容。</p></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><p>公司公布7月份产销数据，7月份销售客车5038辆（+20%），1~7月累计销售26872辆（-20.9%）。</p></div> 
+ <div class="image"><img/></div> 
+ <div class="image"><p>7 月销量同比转正，预计校车有较好销量：公司 7 月份销售客车 5038 辆（+20%），其中大型、中型、轻型客车分别销售 2007（+17%）、2371（+23.8%），660（+16%）；累计销售 26872 辆（-20.9%）。7 月份销量同比转正，结束了三个月的负增长，我们认为校车或在 7 月和 8 月有较好销量。</p></div> 
+ <div class="image"><p>新能源客车持续回暖，公交市场长期需求稳定：根据中客网数据，公司 6 月份销售新能源客车 1864 辆，同比转正。我们预计公司 7 月新能源销量仍然实现正增长。目前新能源客车市场逐步回暖，预计三季度实现同比正增长无忧，四季度有望放量。近期我们在客车市场进行终端调研，公交车司机普遍喜欢开新能源客车，认为新能源客车的驾驶体验和乘坐体验都更好。我们认为新能源公交车市场是刚需市场，长期看，需求和销量无需担忧。购买团体运营客车的客户，在一定范围内可以接受新能源客车的涨价。</p></div> 
+ <div class="image"><p>T7 前景看好，出口有望增长 10%：根据我们终端了解，T7 的市场认可度不断提高，今年有望实现 1000 台的销量。T7 的售价在 36.8 万~78.8 万之间，我们预计该车的盈利能力强，可以为公司贡献较好利润。目前公司在海外市场的布局稳步推进，产品竞争力强，我们认为今年出口销量有望实现 10%的增长。</p></div> 
+ <div class="image"><p>盈利预测与投资建议：补贴退坡使得客车市场的集中度提高，我们认为公司的优势将不断扩大。维持对公司的盈利预测，2017~2019 年每股收益为 1.95 元、2.18 元、2.28 元，维持“推荐”评级。</p></div> 
+ <div class="image"><p>风险提示：1）新能源车销量低于预期；2）成本下降不及预期。</p></div> 
+ <div class="image"><table><tbody><tr><td>2015A</td><td>2016A</td><td>2017E</td><td>2018E</td><td>2019E</td></tr><tr><td>营业收入(百万元)</td><td>31211</td><td>35,850</td><td>38,715</td><td>43,226</td><td>46,108</td></tr><tr><td>YoY(%)</td><td>21.3</td><td>14.9</td><td>8.0</td><td>11.7</td><td>6.7</td></tr><tr><td>净利润(百万元)</td><td>3535</td><td>4,044</td><td>4,327</td><td>4,821</td><td>5,056</td></tr><tr><td>YoY(%)</td><td>35.3</td><td>14.4</td><td>7.0</td><td>11.4</td><td>4.9</td></tr><tr><td>毛利率(%)</td><td>25.3</td><td>27.8</td><td>26.8</td><td>26.7</td><td>26.5</td></tr><tr><td>净利率(%)</td><td>11.3</td><td>11.3</td><td>11.2</td><td>11.2</td><td>11.0</td></tr><tr><td>ROE(%)</td><td>27.7</td><td>30.0</td><td>27.6</td><td>26.4</td><td>24.2</td></tr><tr><td>EPS(摊薄/元)</td><td>1.60</td><td>1.83</td><td>1.95</td><td>2.18</td><td>2.28</td></tr><tr><td>P/E(倍)</td><td>13.8</td><td>12.1</td><td>11.3</td><td>10.1</td><td>9.7</td></tr><tr><td>P/B(倍)</td><td>3.8</td><td>3.6</td><td>3.1</td><td>2.7</td><td>2.3</td></tr></tbody></table></div> 
+</body></html>
+```
+======================================================================
+
+
+======================================================================
+EXAMPLE 2: Document Parsing in QwenVL Markdown Format
+======================================================================
+Image URL: https://ofasys-multimodal-wlcb-3-toshanghai.oss-cn-shanghai.aliyuncs.com/Qwen3VL/demo/omni_parsing/120922.jpg
+Prompt: qwenvl markdown
+
+Response: ```markdown
+荣德基
+点拨
+训练
+
+# 第二学期期末测试卷
+九年级化学·下(KX版) 时间:90分钟 满分:100分
+
+可能用到的相对原子质量:H:1 C:12 O:16 Na:23 Cl:35.5 Ca:40
+
+## 一、选择题(本题包括15小题,每小题3分,共45分。每小题的4个选项中只有1个符合题意)
+
+1. 把少量下列物质分别放入足量水中,充分搅拌,可以得到无色溶液的是 ( )
+   A. 氯化铁
+   B. 氢氧化镁
+   C. 小苏打
+   D. 汽油
+
+2. 下列有关物质的俗称、化学式、类别及常见用途的说法中,完全正确的一组是 ( )
+   | 选项 | 俗称 | 化学式 | 类别 | 常见用途 |
+   |---|---|---|---|---|
+   | A | 消石灰 | Ca(OH)₂ | 碱 | 用作建筑材料 |
+   | B | 石灰石 | CaO | 氧化物 | 用作食品干燥剂 |
+   | C | 小苏打 | NaHCO₃ | 酸 | 用于焙制糕点 |
+   | D | 纯碱 | Na₂CO₃ | 碱 | 用于玻璃、洗涤剂的生产 |
+
+3. 化学实验室常常需要配制溶液,下列说法正确的是 ( )
+   A. 配制溶液时,只能用水作溶剂
+   B. 配制硝酸铵溶液的过程中,溶液的温度会下降
+   C. 用浓硫酸配制稀硫酸时,应将水缓缓注入浓硫酸中
+   D. 将10g氯化钠溶于100g水中,得到质量分数为10%的氯化钠溶液
+
+4. 浓盐酸和浓硫酸对比,下列叙述正确的是 ( )
+   A. 两者均具有挥发性
+   B. 两者均具有刺激性气味
+   C. 两者均具有腐蚀性
+   D. 两者均是黏稠状液体
+
+5. 关注健康,预防疾病。下列叙述错误的是 ( )
+   A. 人体胃液正常的pH范围在0.9~1.5
+   B. 人体缺乏维生素A会引起坏血病
+   C. 香烟的烟气中含多种对人体有害的物质
+   D. 人体缺碘会引起甲状腺肿大,碘过量也会引起甲状腺肿大
+
+6. 下列实验现象描述正确的是 ( )
+   A. 氢氧化钠固体放置于空气中:表面潮湿并逐渐溶解
+   B. 高锰酸钾放入汽油中:很快溶解形成紫色溶液
+   C. 将二氧化碳通入紫色石蕊溶液中:紫色石蕊溶液变蓝色
+   D. 涤纶和羊毛燃烧:都可闻到一股烧毛发的焦糊味
+
+7. 下列各组物质中,能用紫色石蕊溶液鉴别的是 ( )
+   A. 稀硫酸和醋酸溶液
+   B. 稀盐酸和氯化钠溶液
+   C. 碳酸钠溶液和氢氧化钠溶液
+   D. 稀氨水和澄清石灰水
+
+8. 除去下列物质中的少量杂质,方法错误的是 ( )
+   | 选项 | 物质 | 所含杂质 | 除杂质的方法 |
+   |---|---|---|---|
+   | A | CO | CO₂ | 通过足量的氢氧化钠溶液、干燥 |
+   | B | Cu | Fe | 加入足量的稀硫酸、过滤、洗涤、干燥 |
+   | C | CaO | CaCO₃ | 加入适量的稀盐酸、过滤、洗涤、干燥 |
+   | D | KCl溶液 | CuCl₂ | 加入适量的氢氧化钾溶液、过滤 |
+
+9. 归纳推理是一种重要的化学思维方法。下列归纳推理正确的是 ( )
+   A. 碱溶液能使酚酞溶液变红,那么能使酚酞溶液变红的溶液一定是碱溶液
+   B. 镁、锌、铁能与盐酸反应生成氢气,那么它们与稀硫酸反应也能生成氢气
+   C. 中和反应生成盐和水,那么生成盐和水的反应一定是中和反应
+   D. 碳酸盐与盐酸反应放出气体,所以与盐酸反应放出气体的物质一定是碳酸盐
+
+10. 甲、乙、丙、丁四种金属,只有丙在自然界中主要以单质形式存在,用甲制的容器不能盛放丁盐的水溶液,用乙制的容器却可以盛放丁盐的水溶液。由此推断四种金属的活动性由强到弱的顺序是 ( )
+    A. 丙>乙>甲>丁
+    B. 甲>丁>乙>丙
+    C. 丁>甲>乙>丙
+    D. 甲>乙>丁>丙
+
+11. ZnSO₄饱和溶液的溶质质量分数随温度变化的曲线如图所示。下列说法正确的是 ( )
+    A. N点对应的ZnSO₄溶液升温或降温均可能析出晶体
+    B. M点对应的ZnSO₄溶液是不饱和溶液
+    C. ZnSO₄饱和溶液的溶质质量分数随温度升高而增大
+    D. 40℃时,ZnSO₄的溶解度为41g
+    <!-- Image (574, 355, 652, 458) -->
+
+12. 小明向盛有盐酸和MgCl₂溶液的烧杯中加入一定量的NaOH溶液,为判断反应后溶液的成分,他分别取少量反应后的溶液a于试管中,用下表中的试剂进行实验,相应结论错误的是 ( )
+    | 选项 | 试剂 | 现象和结论 |
+    |---|---|---|
+    | A | Zn粉 | 有气泡产生,则溶液a一定含MgCl₂ |
+    | B | CuO粉末 | 无明显现象,则溶液a中一定有两种溶质 |
+    | C | NaOH溶液 | 无明显现象,则溶液a中可能有NaOH |
+    | D | CuSO₄溶液 | 有蓝色沉淀,则溶液a中一定有两种溶质 |
+
+13. 硝酸钾的溶解度随温度升高而增大。如图是有关硝酸钾溶液的实验操作及变化情况,下列说法正确的是 ( )
+    <!-- Image (508, 693, 653, 768) -->
+    A. 操作I一定是降温
+    B. 操作I一定是加溶质
+    C. ①与③的溶质质量可能相等
+    D. ②与③的溶质质量分数相等
+
+14. 图中“—”表示相连的两种物质能发生反应,“→”表示一种物质能转化成另一种物质,部分反应物、生成物及反应条件未标出,则不可能出现的情况是 ( )
+    <!-- Image (593, 838, 650, 917) -->
+    A. 甲是H₂,乙是O₂
+    B. 甲是HNO₃,丙是NaNO₃
+    C. 乙是CO,丙是CO₂
+    D. 乙是Cu(OH)₂,丙是CuSO₄
+
+15. 向一定质量的甲中连续加入乙至过量,此过程中溶液的总质量与加入乙的质量之间的关系,符合如图所示曲线的是 ( )
+    <!-- Image (868, 98, 951, 185) -->
+    | 选项 | 甲 | 乙 |
+    |---|---|---|
+    | A | 稀硫酸 | 氢氧化钠溶液 |
+    | B | 稀盐酸 | 碳酸钙粉末 |
+    | C | 稀盐酸 | 锌粒 |
+    | D | 硝酸银溶液 | 铜粉 |
+
+## 二、填空题(本题包括5小题,共30分)
+
+16. (4分)写出符合下列要求的化学符号:
+    (1) 实验室中最常用的溶剂 ________。
+    (2) 导电性最好的金属 ________。
+    (3) 天然气主要成分 ________。
+    (4) 熟石灰中的阴离子 ________。
+
+17. (7分)2019年12月以来,我国部分地区突发新冠肺炎疫情。严重威胁着人们的生命安全。科学防疫,从我做起。
+    (1) 饮食:合理膳食,保证营养均衡,可以提高人体对新冠肺炎的抵抗力。下表是小明家里某天午餐的食谱。
+    <!-- Table (752, 416, 900, 476) -->
+    ① 红烧牛肉中富含的营养物质是 ________。
+    ② 从营养均衡的角度分析,该食谱中还缺少的有机营养物质是 ________。
+    (2) 消毒:84消毒液是一种以次氯酸钠(NaClO)为主要有效成分的高效消毒剂。
+    ① 次氯酸钠属于 ________ (填“氧化物”或“盐”)。
+    ② 次氯酸钠中氯元素的化合价为 ________。
+    ③ 次氯酸钠的相对分子质量为 ________。
+    ④ 欲用溶质质量分数为5%的次氯酸钠溶液配制1000g溶质质量分数为0.5%的次氯酸钠溶液。需加水 ________g。
+    (3) 救治:为救治病人需要提供氧气。氧烛能持续放出高效氧气,其主要化学成分发生如下反应:2NaClO₃=2X+3O₂↑,则X的化学式为 ________。
+
+18. (7分)根据如图实验回答问题:
+    <!-- Image (703, 774, 940, 879) -->
+    (1) 图1:两金属片相互刻划,根据划痕,说明黄铜比铜的硬度要 ________。
+```
+Image size: 1763 x 2560
+[Image would be displayed here in Jupyter]
+Image size: (2560, 1763)
+======================================================================
+
+Done!

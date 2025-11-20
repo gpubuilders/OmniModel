@@ -1,0 +1,1 @@
+Error generating solution: No code block found in the response.

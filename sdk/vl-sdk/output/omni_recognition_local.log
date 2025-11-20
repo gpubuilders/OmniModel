@@ -1,0 +1,278 @@
+Requirement already satisfied: pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (11.3.0)
+======================================================================
+Checking and installing dependencies...
+======================================================================
+Installing pillow...
+✓ pillow installed successfully
+
+✓ All dependencies installed!
+
+======================================================================
+Omni Recognition with Qwen3-VL - Local Version
+======================================================================
+Model: Qwen3-Omni-10k
+Server: http://localhost:8080/v1
+======================================================================
+
+======================================================================
+Testing Local LLM Connection
+======================================================================
+
+✓ Server is accessible at http://localhost:8080/v1
+
+Available models:
+    LFM2-1.2B-Tool-Q4_K_M-cuda
+    LFM2-8B-A1B-BF16-cpu
+    LFM2-8B-A1B-BF16-cuda
+    LFM2-8B-A1B-UD-Q3_K_XL-cpu
+    LFM2-8B-A1B-UD-Q3_K_XL-cuda
+    qwen3_coder_reap_25b_A3B_IQ4_XS
+    qwen3_vl_30b_instruct
+    qwen3_vl_30b_thinking
+    Qwen3-0.6B-vllm
+    Qwen3-1.7B-vllm
+    Qwen3-4B-Instruct-2507-vllm
+    Qwen3-8B-vllm
+  ✓ Qwen3-Omni-10k (target model)
+    Qwen3-Omni-2k
+    Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+    Qwen3-VL-8B-Instruct-AWQ-8bit-74k-vllm
+    SmallThinker-4B-A0.6B-Instruct_Q8_0
+    vibeThinker
+
+✓ Target model 'Qwen3-Omni-10k' is available!
+
+======================================================================
+Ready to run omni recognition examples!
+======================================================================
+
+Running omni recognition examples... (This may take a few minutes)
+
+
+======================================================================
+EXAMPLE 1: Object Recognition
+======================================================================
+
+Recognize celebrities, anime characters, landmarks, animals, plants, etc.
+
+Image: ./assets/omni_recognition/sample-celebrity-2.jpg
+Query: Who is this person?
+
+----------------------------------------------------------------------
+RECOGNITION RESULT:
+----------------------------------------------------------------------
+
+Image size: 686x386 pixels
+
+✗ Error: Inference failed: HTTPConnectionPool(host='localhost', port=8080): Read timed out. (read timeout=120)
+
+======================================================================
+EXAMPLE 2: Object Spotting with Bounding Boxes
+======================================================================
+
+Identify multiple objects and their locations in the image.
+
+Image: ./assets/omni_recognition/sample-food.jpeg
+Query: Identify food in the image and return their bounding box and Chinese and English name in JSON format.
+
+----------------------------------------------------------------------
+SPOTTING RESULT:
+----------------------------------------------------------------------
+
+Image size: 3024x4032 pixels
+
+✗ Error: Inference failed: API returned status 400: {"error":{"message":"The decoder prompt (length 11874) is longer than the maximum model length of 10000. Make sure that `max_model_len` is no smaller than the number of text tokens plus multimodal tokens. For image inputs, the number of image tokens depends on the number of images, and possibly their aspect ratios as well.","type":"BadRequestError","param":null,"code":400}}
+
+======================================================================
+EXAMPLE 2: Object Spotting with Bounding Boxes
+======================================================================
+
+Identify multiple objects and their locations in the image.
+
+Image: ./assets/omni_recognition/sample-anime.jpeg
+Query: Who are the anime characters in the image? Please show the bounding boxes of all characters and their names in Chinese and English in JSON format.
+
+----------------------------------------------------------------------
+SPOTTING RESULT:
+----------------------------------------------------------------------
+
+Image size: 1920x1080 pixels
+
+Raw JSON output:
+```json
+[
+  {
+    "bbox_2d": [0, 51, 497, 999],
+    "name_zh": "富冈义勇",
+    "name_en": "Giyu Tomioka"
+  },
+  {
+    "bbox_2d": [198, 347, 516, 999],
+    "name_zh": "栗花落香奈乎",
+    "name_en": "Kanao Tsuyuri"
+  },
+  {
+    "bbox_2d": [277, 50, 508, 602],
+    "name_zh": "不死川实弥",
+    "name_en": "Kyojuro Rengoku"
+  },
+  {
+    "bbox_2d": [433, 83, 567, 474],
+    "name_zh": "甘露寺蜜璃",
+    "name_en": "Mitsuri Kanroji"
+  },
+  {
+    "bbox_2d": [541, 0, 650, 327],
+    "name_zh": "悲鸣屿行冥",
+    "name_en": "Hakurō Gō"
+  },
+  {
+    "bbox_2d": [635, 115, 796, 544],
+    "name_zh": "伊黑小芭内",
+    "name_en": "Kanae Kocho"
+  },
+  {
+    "bbox_2d": [496, 320, 793, 999],
+    "name_zh": "嘴平伊之助",
+    "name_en": "Isshin Kanae"
+  },
+  {
+    "bbox_2d": [762, 31, 998, 553],
+    "name_zh": "炼狱槙寿郎",
+    "name_en": "Kyojuro Rengoku"
+  },
+  {
+    "bbox_2d": [685, 445, 999, 999],
+    "name_zh": "猗窝座",
+    "name_en": "Yoriichi Tsukigune"
+  }
+]
+```
+
+----------------------------------------------------------------------
+
+Image dimensions: 1920x1080
+----------------------------------------------------------------------
+
+Found 9 objects:
+
+[1] Giyu Tomioka
+    Position: (0, 55) → (954, 1078)
+    Size: 954x1023 pixels
+
+[2] Kanao Tsuyuri
+    Position: (380, 374) → (990, 1078)
+    Size: 610x704 pixels
+
+[3] Kyojuro Rengoku
+    Position: (531, 54) → (975, 650)
+    Size: 444x596 pixels
+
+[4] Mitsuri Kanroji
+    Position: (831, 89) → (1088, 511)
+    Size: 257x422 pixels
+
+[5] Hakurō Gō
+    Position: (1038, 0) → (1248, 353)
+    Size: 210x353 pixels
+
+[6] Kanae Kocho
+    Position: (1219, 124) → (1528, 587)
+    Size: 309x463 pixels
+
+[7] Isshin Kanae
+    Position: (952, 345) → (1522, 1078)
+    Size: 570x733 pixels
+
+[8] Kyojuro Rengoku
+    Position: (1463, 33) → (1916, 597)
+    Size: 453x564 pixels
+
+[9] Yoriichi Tsukigune
+    Position: (1315, 480) → (1918, 1078)
+    Size: 603x598 pixels
+
+======================================================================
+
+
+======================================================================
+EXAMPLE 1: Object Recognition
+======================================================================
+
+Recognize celebrities, anime characters, landmarks, animals, plants, etc.
+
+Image: ./assets/omni_recognition/sample-bird.jpg
+Query: What kind of bird is this? Provide details about the species.
+
+----------------------------------------------------------------------
+RECOGNITION RESULT:
+----------------------------------------------------------------------
+
+Image size: 1920x1080 pixels
+
+Based on the visual characteristics of the birds in the image, they are **barbets**.
+
+Here are the details about the species:
+
+### The Green Bird (Right Side)
+
+This is a **Crimson-fronted Barbet** (*Psilopogon haemacephalus*).
+
+*   **Identification:** It is a colorful bird with a bright green body, a blue throat and upper breast, and a distinct crimson-red patch on its forehead. The beak is thick and hooked, which is characteristic of barbets. The bird in the photo has a small white spot on its throat, which is a key feature of this species.
+*   **Habitat:** This species is native to the forests of the Indian subcontinent, including India and Sri Lanka.
+*   **Diet:** They are primarily frugivores, feeding on berries and figs, but they also eat insects and nectar. The banana provided in the enclosure is a suitable food source.
+
+### The Black Bird (Left Side)
+
+This is a **Crimson-fronted Barbet** as well. The black bird is a male of the same species (*Psilopogon haemacephalus*).
+
+*   **Identification:** The male has a glossy black body, a blue throat, and a red forehead patch. The bird in the photo appears to be a male in non-breeding plumage, which is why it looks mostly black, or it could be a female, which is also mostly black with a blue throat and red forehead. The key identifier is the combination of the blue throat and red forehead patch.
+*   **Habitat:** As mentioned, they are found in the forests of the Indian subcontinent.
+*   **Behavior:** They are often found in pairs or small groups and are known for their loud, chattering calls.
+
+======================================================================
+
+
+======================================================================
+EXAMPLE 1: Object Recognition
+======================================================================
+
+Recognize celebrities, anime characters, landmarks, animals, plants, etc.
+
+Image: ./assets/omni_recognition/sample-celebrity.jpeg
+Query: Who is this celebrity? Provide information about them.
+
+----------------------------------------------------------------------
+RECOGNITION RESULT:
+----------------------------------------------------------------------
+
+Image size: 1046x1120 pixels
+
+Based on the image, the celebrities are the cast members of the popular Chinese variety show **"Keep Running" (also known as "Running Man China")**.
+
+The photo is a promotional group shot for the show, which features a mix of Chinese and international celebrities. From the individuals in the photo:
+
+*   **Top Center:** This is **Joo Heon** (also known as **Zhou Shen**), a renowned Chinese singer. He is known for his ethereal voice and performances of songs like "The Story of the Nightingale" and "Hymn of the South".
+*   **Bottom Center:** This is **Sun Honglei**, a prominent Chinese actor and director. He is famous for his roles in numerous successful Chinese television dramas and films.
+*   **Bottom Right:** This is **Liu Yijun** (also known as **Liu Ye**), a well-known Chinese actor. He is recognized for his roles in films like "The Story of Qiu Ju" and "The Story of a Soldier".
+*   **Top Right:** This is **Zhang Yixing** (also known as **Lay Zhang**), a Chinese singer, dancer, and actor. He is a member of the South Korean-Chinese boy group EXO and also has a successful solo career.
+*   **Bottom Left:** This is **Zhang Zhehan**, a Chinese actor and singer. He gained popularity through his roles in various television dramas.
+
+The show "Keep Running" is a Chinese adaptation of the South Korean variety show "Running Man". The cast typically includes a mix of actors, singers, and comedians who participate in various challenges and games. The photo captures the energetic and humorous spirit of the show.
+
+======================================================================
+
+
+======================================================================
+All examples completed!
+======================================================================
+
+To run custom recognition:
+1. Edit this script
+2. Use example_custom_recognition() function
+3. Provide your own image path and query
+
+Example:
+  example_custom_recognition('my_image.jpg', 'What is this?')
+======================================================================
+

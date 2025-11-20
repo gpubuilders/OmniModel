@@ -1,0 +1,51 @@
+Requirement already satisfied: Pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (11.3.0)
+======================================================================
+Checking and installing dependencies...
+======================================================================
+Installing Pillow...
+✓ Pillow installed successfully
+
+✓ All dependencies installed!
+
+============================================================
+Mobile Agent with Local LLM
+============================================================
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Endpoint: http://localhost:8080/v1
+============================================================
+
+============================================================
+Testing API Connection...
+============================================================
+
+✓ API Connection Successful!
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Response: API connection successful!
+
+
+Running mobile agent examples...
+
+======================================================================
+EXAMPLE 1: English App & Query with Local API
+======================================================================
+Screenshot: ./assets/agent_function_call/mobile_en_example.png
+Instruction: Search for Musk in X and go to his homepage to open the first post.
+
+Generated action: {'name': 'mobile_use', 'arguments': {'action': 'click', 'coordinate': [447, 79]}}
+[Image would be displayed here in Jupyter]
+Image size: (1440, 3120)
+======================================================================
+
+
+======================================================================
+EXAMPLE 2: Chinese App & Query with Local API
+======================================================================
+Screenshot: ./assets/agent_function_call/mobile_zh_example.png
+Instruction: Search for Musk in X and go to his homepage to open the first post.
+
+Generated action: {'name': 'mobile_use', 'arguments': {'action': 'system_button', 'button': 'Home'}}
+[Image would be displayed here in Jupyter]
+Image size: (1440, 3120)
+======================================================================
+
+Done!

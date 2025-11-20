@@ -1,0 +1,153 @@
+Requirement already satisfied: Pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (11.3.0)
+======================================================================
+Checking and installing dependencies...
+======================================================================
+Installing Pillow...
+✓ Pillow installed successfully
+✓ numpy is already installed
+✓ openai is already installed
+✓ decord is already installed
+✓ All dependencies installed!
+
+======================================================================
+Spatial Understanding with Local LLM
+======================================================================
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Endpoint: http://localhost:8080/v1
+======================================================================
+
+======================================================================
+Running spatial understanding examples...
+======================================================================
+
+======================================================================
+Testing API Connection...
+======================================================================
+
+✓ API Connection Successful!
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Response: API connection successful!
+
+======================================================================
+EXAMPLE 1: Spatial Relationships Between Objects
+======================================================================
+Prompt:
+Which object, in relation to your current position, holds the farthest placement in the image?
+Answer options:
+A.chair
+B.plant
+C.window
+D.tv stand.
+
+Answer:
+C.window
+Input image path: assets/spatial_understanding/spatio_case1.jpg
+Image size: (640, 480)
+[Image would be displayed here in Jupyter]
+======================================================================
+
+
+======================================================================
+EXAMPLE 2: Object Affordances
+======================================================================
+Prompt:
+Locate the free space on the white table on the right in this image. Output the point coordinates in JSON format.
+
+Answer:
+```json
+[
+    {"point_2d": [874, 723], "label": "point_1"}
+]
+```
+Parsed points:  [[874, 723]]
+Parsed descriptions:  ['point_1']
+[Image would be displayed here in Jupyter]
+
+Second Example:
+Prompt:
+Can the speaker fit behind the guitar?
+
+Answer:
+Yes, the speaker can fit behind the guitar.
+
+Here’s why:
+- The speaker is a small, black, rectangular box, approximately 10-12 inches tall and 6-8 inches wide.
+- The guitar is resting on a stand, with its body angled slightly away from the wall and its neck leaning against the wall.
+- The speaker is placed on a small white stool, which is positioned behind the guitar’s body.
+- There is ample space between the guitar’s body and the wall to accommodate the speaker, even if you move the stool slightly.
+
+So, the speaker fits comfortably behind the guitar without any issues.
+[Image would be displayed here in Jupyter]
+======================================================================
+
+
+======================================================================
+EXAMPLE 3: Spatial Reasoning and Action Planning
+======================================================================
+Prompt:
+What color arrow should the robot follow to move the apple in between the green can and the orange? Choices: A. Red. B. Blue. C. Green. D. Orange.
+
+Answer:
+Looking at the image, we can see:
+
+- A robot arm holding an apple.
+- A green can on the left.
+- An orange on the right.
+- A paper cup further to the right.
+- Three arrows pointing in different directions:
+  - A **red** arrow pointing from the apple towards the green can.
+  - A **blue** arrow pointing from the apple towards the orange.
+  - A **green** arrow pointing from the apple towards the paper cup.
+
+The question asks: "What color arrow should the robot follow to move the apple in between the green can and the orange?"
+
+To move the apple "in between" the green can and the orange, the robot needs to move it to the space directly between them. The blue arrow points towards the orange, which would position the apple to the right of the green can and left of the orange, effectively placing it between them.
+
+The red arrow points towards the green can, which would put the apple to the left of the green can, not between the can and the orange.
+
+The green arrow points towards the paper cup, which is not between the can and the orange.
+
+Therefore, the correct arrow for the robot to follow to achieve the goal is the **blue** arrow.
+
+**Answer: B. Blue.**
+Input image path: assets/spatial_understanding/spatio_case2_plan.png
+Image size: (400, 229)
+[Image would be displayed here in Jupyter]
+
+Second Example:
+Prompt:
+Which motion can help change the coffee pod? Choices: A. A. B. B. C. C. D. D.
+
+Answer:
+To change the coffee pod in a machine like this (which appears to be a Nespresso or similar pod-style espresso machine), you typically need to access the pod chamber, which is usually located at the top or front of the machine.
+
+Let’s analyze the arrows:
+
+- **A**: Points to the left side of the machine’s base. This is likely the drip tray or water tank area — not where you change the pod.
+- **B**: Points to the right side of the machine’s base, near the portafilter or steam wand area. This is not the pod chamber.
+- **C**: Points upward toward the top-right of the machine, near the water reservoir or steam wand. Not the pod chamber.
+- **D**: Points to the top of the machine, specifically to the area where the pod is inserted — the pod chamber or “pod holder” — which is typically located at the top front or top center of the machine.
+
+In most pod machines, you **press down** or **pull out** the pod holder to remove or insert a new pod. The arrow labeled **D** points to the top of the machine where the pod is inserted, so moving or interacting in that area (e.g., pressing down or pulling out) would be the correct motion to change the pod.
+
+Therefore, the correct answer is:
+
+**D. D.**
+Input image path: assets/spatial_understanding/spatio_case2_plan2.png
+Image size: (400, 400)
+[Image would be displayed here in Jupyter]
+======================================================================
+
+
+======================================================================
+EXAMPLE 4: Video Spatial Reasoning
+======================================================================
+This example requires video assets for spatial reasoning in videos.
+For a complete implementation, you would need to:
+1. Download the video file
+2. Extract frames using get_video_frames()
+3. Process the frames with the model
+4. Display the results as an image grid
+======================================================================
+
+Done!

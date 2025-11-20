@@ -1,0 +1,80 @@
+Requirement already satisfied: Pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (11.3.0)
+Requirement already satisfied: qwen-vl-utils in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (0.0.14)
+Requirement already satisfied: av in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-vl-utils) (16.0.1)
+Requirement already satisfied: packaging in /home/shazam/.local/lib/python3.12/site-packages (from qwen-vl-utils) (25.0)
+Requirement already satisfied: pillow in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-vl-utils) (11.3.0)
+Requirement already satisfied: requests in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from qwen-vl-utils) (2.32.5)
+Requirement already satisfied: charset_normalizer<4,>=2 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from requests->qwen-vl-utils) (3.4.4)
+Requirement already satisfied: idna<4,>=2.5 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from requests->qwen-vl-utils) (3.11)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from requests->qwen-vl-utils) (2.5.0)
+Requirement already satisfied: certifi>=2017.4.17 in /home/shazam/.pyenv/versions/3.12.9/lib/python3.12/site-packages (from requests->qwen-vl-utils) (2025.10.5)
+======================================================================
+Checking and installing dependencies...
+======================================================================
+Installing Pillow...
+✓ Pillow installed successfully
+Installing qwen-vl-utils...
+✓ qwen-vl-utils installed successfully
+
+✓ All dependencies installed!
+
+============================================================
+Long Document Understanding with Local LLM
+============================================================
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Endpoint: http://localhost:8080/v1
+============================================================
+
+============================================================
+Testing API Connection...
+============================================================
+
+✓ API Connection Successful!
+Model: Qwen3-VL-8B-Instruct-AWQ-8bit-24k-vllm
+Response: API connection successful!
+
+
+Running long document understanding examples...
+
+======================================================================
+EXAMPLE 1: Long Document Summarization
+======================================================================
+PDF Path: ./assets/long_document_understanding/Qwen2.5-VL.pdf
+Prompt: Please summarize the key contributions of this paper based on its abstract and introduction.
+Converting PDF to images at 144 DPI...
+Converted and cached 5 pages to cache/df512ced703efeceaf53f33f3a59a0dc_144_images.npy.
+[Image would be displayed here in Jupyter]
+Image size: (1000, 1000)
+Send 5 pages to the model... 
+Waiting for response...
+
+Response:
+The paper presents a novel approach to correcting speech recognition errors using a post-editing method. Its key contributions are:
+
+1.  **Proposed Methodology**: It introduces a system that combines a neural sequence tagger and a corrector module. The tagger identifies errors in the ASR hypothesis and assigns edit operations (e.g., replace, delete, insert), while the corrector applies these operations to produce a corrected output.
+2.  **Applicability and Efficiency**: The approach is designed to be applicable to any ASR system, regardless of its architecture, and is particularly suited for production environments where inference latency and training time are critical constraints.
+3.  **Resource Efficiency**: The method requires significantly fewer resources to train compared to adapting the ASR model directly, making it more suitable for industrial applications.
+4.  **High Precision**: The system is designed to provide high-precision corrections, which is crucial for avoiding the introduction of new errors in production settings.
+5.  **Evaluation**: The paper evaluates the method on three European languages (Spanish, French, German) and demonstrates that the correction models achieve significant improvements in WER (Word Error Rate) reduction, with results comparable to previous approaches but with much smaller resource requirements.
+
+In summary, the paper's main contribution is a practical, efficient, and high-precision post-editing framework for correcting ASR errors that can be easily integrated into existing ASR systems.
+======================================================================
+
+
+======================================================================
+EXAMPLE 2: Counting Tables in a Document
+======================================================================
+PDF Path: ./assets/long_document_understanding/fox_got_merge_code.pdf
+Prompt: How many tables?
+Converting PDF to images at 144 DPI...
+Converted and cached 35 pages to cache/92da8d652d0346fb8293f2beb47f1bc2_144_images.npy.
+[Image would be displayed here in Jupyter]
+Image size: (1500, 1100)
+First page size: (1159, 1500)
+Send 35 pages to the model... 
+Waiting for response...
+Error during API call: Error code: 400 - {'error': {'message': 'The decoder prompt (length 59302) is longer than the maximum model length of 24000. Make sure that `max_model_len` is no smaller than the number of text tokens plus multimodal tokens. For image inputs, the number of image tokens depends on the number of images, and possibly their aspect ratios as well.', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+Error in example: Error code: 400 - {'error': {'message': 'The decoder prompt (length 59302) is longer than the maximum model length of 24000. Make sure that `max_model_len` is no smaller than the number of text tokens plus multimodal tokens. For image inputs, the number of image tokens depends on the number of images, and possibly their aspect ratios as well.', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+======================================================================
+
+Done!
