@@ -1,0 +1,18 @@
+--- Example 1: Chinese OCR ---
+Processing: assets/ocr2.jpeg
+<IPython.core.display.Image object>
+Response: “尊敬的老师
+展信舒颜
+气温骤降
+树叶无声无息的掉落
+教诲如春风
+师恩深似海
+愿温馨、喜悦与幸福
+如同吐露芬芳的花朵
+永远洋溢在您幸福的时光里”
+--------------------------------------------------
+--- Example 2: English OCR ---
+Processing: assets/ocr1.jpeg
+<IPython.core.display.Image object>
+Response: $$\left\{ \begin{array} { l } { v = v _ { 0 } + a t \Rightarrow t = \frac { v - v _ { 0 } } { a } } \\ { x = v _ { 0 } t + \frac { 1 } { 2 } a t ^ { 2 } } \end{array} \right.$$
+--------------------------------------------------

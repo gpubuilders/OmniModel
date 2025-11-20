@@ -1,0 +1,8 @@
+Processing: assets/functioncall_case.wav
+<IPython.lib.display.Audio object>
+Response: <invoke>
+{"name": "car_ac_control", "arguments": {"temperature": 22, "ac_on": true}}
+</invoke>
+<invoke>
+{"name": "web_search", "arguments": {"queries": ["阿里巴巴西溪园区附近商场"]}}
+</invoke>

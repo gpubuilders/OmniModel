@@ -1,0 +1,13 @@
+--- Example 1: Question about video content ---
+Processing video: assets/audio_visual.mp4
+Question: What was the first sentence the boy said when he met the girl?
+(Note: Video not supported in local API, using text description instead)
+<IPython.core.display.Video object>
+Response: I cannot provide the first sentence the boy said when he met the girl because I do not have access to the video file "audio_visual.mp4" or its content. As an AI assistant, I cannot view, analyze, or retrieve information from video files. Please refer to the video directly to find the answer.
+--------------------------------------------------
+--- Example 2: Multiple choice question about video content ---
+Processing video: assets/audio_visual2.mp4
+(Note: Video not supported in local API, using text description instead)
+<IPython.core.display.Video object>
+Response: D. To indicate SEC scrutiny of his fund proposal
+--------------------------------------------------

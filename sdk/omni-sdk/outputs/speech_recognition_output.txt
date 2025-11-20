@@ -1,0 +1,15 @@
+--- Example 1: Chinese speech recognition ---
+Processing: assets/asr_zh.wav
+<IPython.lib.display.Audio object>
+Response: 甚至出现交易几乎停滞的情况。
+--------------------------------------------------
+--- Example 2: English speech recognition ---
+Processing: assets/asr_en.wav
+<IPython.lib.display.Audio object>
+Response: Mhm. Oh, yeah, yeah. He wasn't even that big when I started listening to him. But and his solo music didn't do overly well, but he did very well when he started writing for other people.
+--------------------------------------------------
+--- Example 3: French speech recognition ---
+Processing: assets/asr_fr.wav
+<IPython.lib.display.Audio object>
+Response: Bien, on va passer à des questions un peu plus générales. Pour toi, quelle a été l'opportunité qui t'a conduit à t'impliquer dans l'industrie du doublage en fait?
+--------------------------------------------------

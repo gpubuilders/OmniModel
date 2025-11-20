@@ -1,0 +1,6 @@
+--- Example: Video Description ---
+Processing: assets/video1.mp4
+(Note: Video not supported in local API, using text description instead)
+<IPython.core.display.Video object>
+Response: I'm unable to view or analyze video files, including "video1.mp4". As a text-based AI assistant, I cannot process multimedia content. If you'd like, you can describe the video to me, and I can help interpret or provide feedback based on your description.
+--------------------------------------------------

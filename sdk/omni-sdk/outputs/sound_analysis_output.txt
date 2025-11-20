@@ -1,0 +1,23 @@
+--- Example 1: Analyze what happened in audio ---
+Processing: assets/sound1.wav
+<IPython.lib.display.Audio object>
+Response: A dog is barking and growling aggressively.
+--------------------------------------------------
+--- Example 2: Identify sound and context ---
+Processing: assets/sound2.mp3
+<IPython.lib.display.Audio object>
+Response: This is the sound of an **alarm clock**.
+
+This sound would typically occur in the morning, as a wake-up call. It might also be heard in a situation where someone has set a timer for a specific task, like cooking or a workout, and the timer has just gone off.
+--------------------------------------------------
+--- Example 3: Guess location from sound ---
+Processing: assets/sound3.mp3
+<IPython.lib.display.Audio object>
+Response: Based on the sounds, you are most likely in a **restaurant kitchen** or a **large commercial food preparation area**.
+
+The key sounds that point to this conclusion are:
+
+*   **The rhythmic clatter:** This is the distinct sound of a **wok** being used for stir-frying. The rapid, metallic tapping is characteristic of a chef skillfully tossing ingredients in the wok.
+*   **The sizzling:** The constant background sizzle indicates food is being cooked in hot oil.
+*   **The ventilation:** The loud, powerful hum is the sound of a large **range hood** or **exhaust fan** running to remove smoke, steam, and cooking odors.
+--------------------------------------------------

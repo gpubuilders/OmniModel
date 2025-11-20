@@ -1,0 +1,10 @@
+--- Audio Dialogue Example ---
+Processing audio: assets/translate_to_chinese.wav
+<IPython.lib.display.Audio object>
+Response: 每个人都希望被欣赏，所以如果你欣赏某人，就别藏着掖着。
+--------------------------------------------------
+--- Video Dialogue Example ---
+Processing video: assets/draw.mp4
+<IPython.core.display.Video object>
+Response: I can't view or analyze video files directly. If you have a question about the content of "draw.mp4," please describe what's happening in the video, and I'll do my best to assist based on your description.
+--------------------------------------------------

@@ -1,0 +1,21 @@
+--- Example 1: Nationality, gender and sound effects analysis ---
+Processing: assets/mixed_audio1.mp3
+<IPython.lib.display.Audio object>
+Response: *   **国籍**: 法国
+*   **性别**: 男
+*   **音效**: 音频中出现了多次相机快门的声音。
+--------------------------------------------------
+--- Example 2: Sound effects and instruments analysis ---
+Processing: assets/mixed_audio2.mp3
+<IPython.lib.display.Audio object>
+Response: {
+  "sound effects": [
+    "Dog bark"
+  ],
+  "musical instruments": [
+    "Piano",
+    "Drums",
+    "Bass guitar"
+  ]
+}
+--------------------------------------------------

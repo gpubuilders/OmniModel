@@ -1,0 +1,18 @@
+--- Example 1: Chinese to English translation ---
+Processing: assets/asr_zh.wav
+<IPython.lib.display.Audio object>
+Response: There was even a situation where trading almost stagnated.
+--------------------------------------------------
+--- Example 2: English to Chinese translation ---
+Processing: assets/asr_en.wav
+<IPython.lib.display.Audio object>
+Response: 嗯,是的,是的。
+我开始听他的时候,他还没那么大。
+他的个人音乐并没有做得很好,
+但他开始为别人写歌时,他做得非常好。
+--------------------------------------------------
+--- Example 3: French to English translation ---
+Processing: assets/asr_fr.wav
+<IPython.lib.display.Audio object>
+Response: Well, we're going to move on to some more general questions. For you, what was the opportunity that led you to get involved in the dubbing industry?
+--------------------------------------------------

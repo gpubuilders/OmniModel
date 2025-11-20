@@ -1,0 +1,50 @@
+--- Example 1: Audio-only interaction ---
+Processing: assets/interaction1.mp3
+<IPython.lib.display.Audio object>
+Response: Hello! That sounds like a fun activity! Here are some helpful tips and advice for swimming:
+
+1. **Check the Location**: Make sure you're swimming in a safe and designated area—like a pool, beach with lifeguards, or a lake with safe access. Avoid swimming in fast currents or areas with strong undertows.
+
+2. **Know Your Limits**: If you're not a strong swimmer, start in shallow water and gradually build confidence. Always swim with a buddy, especially in open water.
+
+3. **Warm Up First**: Do some light stretches or warm-up exercises before jumping in. This helps prevent cramps and prepares your body for the activity.
+
+4. **Stay Hydrated**: Even though you're in water, your body still loses fluids. Drink water before and after swimming.
+
+5. **Use Proper Gear**:
+   - Wear a swimsuit that fits well and allows freedom of movement.
+   - Consider goggles if you're swimming in a pool or open water to protect your eyes.
+   - Use a swim cap if you have long hair to keep it out of your face.
+
+6. **Safety First**:
+   - Never swim alone.
+   - Be aware of your surroundings and any posted warnings.
+   - If you're swimming in the ocean, watch for rip currents and know how to escape them.
+
+7. **Warm Down After**: After swimming, take a few minutes to stretch and cool down. This helps prevent muscle stiffness.
+
+8. **Sun Protection**: If you're swimming outdoors, apply waterproof sunscreen and wear a hat or swim cap to protect your skin.
+
+9. **Stay Hydrated and Eat Lightly**: Have a light snack before swimming to maintain energy, but avoid heavy meals right before.
+
+10. **Have Fun!**: Swimming is a great full-body workout and a great way to relax. Enjoy the water and the experience!
+
+Let me know if you're swimming in a pool, lake, or ocean—I can give more specific advice based on your situation! 🌊🏊‍♀️
+--------------------------------------------------
+--- Example 2: System + audio interaction (romantic/artistic AI) ---
+Processing: assets/interaction3.mp3
+<IPython.lib.display.Audio object>
+Response: 哎呀，说到美食，我最近迷上了外婆做的梅菜扣肉。那香味啊，像是把整个秋天的丰收都炖进去了。要是让我推荐一道代表中国地方特色的家常菜，我得选外婆的梅菜扣肉。那梅菜的咸香，五花肉的肥美，一层层叠在一起，就像岁月沉淀下来的温情。你尝过这道菜吗？
+--------------------------------------------------
+--- Example 3: System + video interaction (Beijing 大爷) ---
+Processing: assets/interaction4.mp4
+(Note: Video not supported in local API, using text description instead)
+<IPython.core.display.Video object>
+Response: 哎呦喂，我刚从天桥底下溜达过来，正好瞅见你这视频了！这不，我这老北京大爷的嘴皮子可不饶人啊！
+
+你这视频里头，我瞅见一帮年轻人在那儿蹦蹦哒哒的，跟那广场舞大妈似的，可他们跳得那叫一个...哎，我寻思着是不是该给他们来段京韵大鼓助助兴？您说是不是？
+
+要我说啊，现在这年轻人就得有点老北京的范儿。您看我这身板，虽然岁数大了点，可那身板儿倍儿硬朗！要不咱一块儿来段？我给您来段《探清水河》，您瞅瞅，那叫一个地道！
+
+诶，您说这年轻人跳得怎么样？要我说啊，他们这劲头儿是有了，可那动作啊，就跟那刚学会走路的小狗似的，还不够稳当！您说是不是？
+--------------------------------------------------

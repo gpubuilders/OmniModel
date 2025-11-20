@@ -1,0 +1,34 @@
+--- Example 1: Locate bird ---
+Processing: assets/grounding1.jpeg
+<IPython.core.display.Image object>
+Response: ```json
+[
+	{"bbox_2d": [827, 324, 999, 469], "label": "bird"},
+	{"bbox_2d": [747, 383, 831, 547], "label": "bird"},
+	{"bbox_2d": [685, 398, 753, 581], "label": "bird"},
+	{"bbox_2d": [615, 396, 696, 591], "label": "bird"},
+	{"bbox_2d": [497, 398, 624, 597], "label": "bird"},
+	{"bbox_2d": [448, 375, 504, 551], "label": "bird"},
+	{"bbox_2d": [385, 355, 450, 544], "label": "bird"},
+	{"bbox_2d": [323, 371, 391, 531], "label": "bird"},
+	{"bbox_2d": [265, 365, 327, 537], "label": "bird"},
+	{"bbox_2d": [211, 371, 277, 526], "label": "bird"},
+	{"bbox_2d": [162, 338, 231, 537], "label": "bird"},
+	{"bbox_2d": [85, 345, 166, 537], "label": "bird"},
+	{"bbox_2d": [0, 355, 90, 547], "label": "bird"},
+	{"bbox_2d": [228, 825, 388, 968], "label": "bird"}
+]
+```
+--------------------------------------------------
+--- Example 2: Locate person riding motorcycle ---
+Processing: assets/grounding2.jpg
+<IPython.core.display.Image object>
+Response: ```json
+[
+  {
+    "bbox_2d": [14, 517, 87, 712],
+    "label": "A person riding a motorcycle while wearing a helmet."
+  }
+]
+```
+--------------------------------------------------
