@@ -1,0 +1,21 @@
+Starting MCP Filesystem Server...
+✓ MCP Server ready
+✓ Available tools: 14
+  read_file, read_text_file, read_media_file, read_multiple_files, write_file...
+
+============================================================
+MCP INTERACTIVE CHAT
+============================================================
+Chat with your AI assistant. It has access to filesystem tools.
+Working directory: /tmp
+
+Commands:
+  /help    - Show available tools
+  /clear   - Clear conversation history
+  /verbose - Toggle verbose mode
+  /quit    - Exit chat
+============================================================
+
+
+You: 
+✓ MCP Server stopped

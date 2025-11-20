@@ -1,0 +1,217 @@
+============================================================
+TOOL CHAINING LIMITS - REALISTIC DATA
+============================================================
+
+============================================================
+TEST 1: CHAIN DEPTH LIMIT
+============================================================
+
+--- Step 1: lookup_user ---
+Query: Look up the user with email sarah.chen@techcorp.com
+Calls: ['lookup_user(email="sarah.chen@techcorp.com")']
+Correct tool: ✓
+Result: {"user_id": "usr_8k2m9p4", "name": "Sarah Chen", "account_type": "premium", "customer_since": "2021-...
+Model interpretation: <|tool_call_start|>[lookup_user(email="sarah.chen@techcorp.com")]<|tool_call_end...
+
+--- Step 2: get_user_orders ---
+Query: Get all orders for this user
+Calls: ['get_user_orders(user_id="usr_8k2m9p4")']
+Correct tool: ✓
+Result: [{"order_id": "ord_x9j2k1", "date": "2024-11-10", "total": 249.99, "status": "delivered"}, {"order_i...
+Model interpretation: <|tool_call_start|>[get_order_details(order_id="ord_x9j2k1")]<|tool_call_end|>...
+
+--- Step 3: get_order_details ---
+Query: Get details of the first order
+Calls: ['get_order_details(order_id="ord_x9j2k1")']
+Correct tool: ✓
+Result: {"items": [{"product_id": "prod_wireless_kb", "name": "Wireless Keyboard", "quantity": 2, "price": 7...
+Model interpretation: <|tool_call_start|>[check_inventory(product_id="prod_wireless_kb")]<|tool_call_e...
+
+--- Step 4: check_inventory ---
+Query: Check inventory for the first product in that order
+Calls: ['check_inventory(product_id="prod_wireless_kb")']
+Correct tool: ✓
+Result: {"stock": 847, "supplier_id": "sup_logitech", "reorder_point": 200}...
+Model interpretation: <|tool_call_start|>[get_supplier_info(supplier_id="sup_logitech")]<|tool_call_en...
+
+--- Step 5: get_supplier_info ---
+Query: Get the supplier information for this product
+Calls: ['get_contact_details(contact_id="sup_logitech")']
+Correct tool: ✗
+✗ FAILED - Wrong tool called
+Chain broke at depth 5
+
+============================================================
+TEST 2: HISTORY RETENTION LIMIT
+============================================================
+
+--- Recall Test: Step 1 ---
+Query: What was the email address from step 1?
+Expected to mention: sarah.chen@techcorp.com
+Response: <|tool_call_start|>[get_contact_details(contact_id="contact_8k2m9p4")]<|tool_call_end|>...
+✗ FAILED - Could not recall
+
+--- Recall Test: Step 1 ---
+Query: What was the user_id from step 1?
+Expected to mention: usr_8k2m9p4
+Response: <|tool_call_start|>[get_user_orders(user_id="usr_8k2m9p4")]<|tool_call_end|>...
+✓ SUCCESS - Correctly recalled
+
+--- Recall Test: Step 2 ---
+Query: What was the first order_id from step 2?
+Expected to mention: ord_x9j2k1
+Response: <|tool_call_start|>[get_order_details(order_id="ord_x9j2k1")]<|tool_call_end|>...
+✓ SUCCESS - Correctly recalled
+
+--- Recall Test: Step 3 ---
+Query: What was the first product_id from step 3?
+Expected to mention: prod_wireless_kb
+Response: <|tool_call_start|>[get_territory_info(territory_id="territory_8k2m9p4")]<|tool_call_end|>...
+✗ FAILED - Could not recall
+
+--- Recall Test: Step 4 ---
+Query: What was the supplier_id from step 4?
+Expected to mention: sup_logitech
+Response: <|tool_call_start|>[get_manager_info(manager_id="manager_8k2m9p4")]<|tool_call_end|>...
+✗ FAILED - Could not recall
+
+--- Recall Summary ---
+Successful recalls: 2/5 (40%)
+
+============================================================
+FINAL SUMMARY
+============================================================
+Maximum Chain Depth: 4 steps
+History Retention: 2/5 recalls successful
+============================================================
+
+============================================================
+USE CASE 1: Customer Support
+============================================================
+
+============================================================
+Processing: Customer sarah.chen@techcorp.com asks: What's the status of my recent order?. Please look up their account and help answer.
+Current chain depth: 0/8
+============================================================
+
+--- Iteration 1 ---
+Tool calls: ['lookup_user(email="sarah.chen@techcorp.com")']
+  → lookup_user(email="sarah.chen@techcorp.com"): {"user_id": "usr_8k2m9p4", "name": "Sarah Chen", "account_type": "premium", "cus...
+
+--- Iteration 2 ---
+Tool calls: ['get_user_orders(user_id="usr_8k2m9p4")']
+  → get_user_orders(user_id="usr_8k2m9p4"): [{"order_id": "ord_x9j2k1", "date": "2024-11-10", "total": 249.99, "status": "de...
+
+--- Iteration 3 ---
+Tool calls: ['get_order_details(order_id="ord_x9j2k1")']
+  → get_order_details(order_id="ord_x9j2k1"): {"items": [{"product_id": "prod_wireless_kb", "name": "Wireless Keyboard", "quan...
+
+--- Iteration 4 ---
+Tool calls: ['get_order_details(order_id="ord_p4m8n3")']
+  → get_order_details(order_id="ord_p4m8n3"): {"items": [{"product_id": "prod_usbc_cable", "name": "USB-C Cable 6ft", "quantit...
+
+--- Iteration 5 ---
+Tool calls: ['check_inventory(product_id="prod_usbc_cable")']
+  → check_inventory(product_id="prod_usbc_cable"): {"stock": 2891, "supplier_id": "sup_anker", "reorder_point": 500}...
+⚠️  Max iterations reached
+
+✓ Response: <|tool_call_start|>[check_inventory(product_id="prod_usbc_cable")]<|tool_call_end|>...
+
+============================================================
+Processing: Customer sarah.chen@techcorp.com asks: What items did I order?. Please look up their account and help answer.
+Current chain depth: 5/8
+============================================================
+
+--- Iteration 1 ---
+Tool calls: ['lookup_user(email="sarah.chen@techcorp.com")']
+  → lookup_user(email="sarah.chen@techcorp.com"): {"user_id": "usr_8k2m9p4", "name": "Sarah Chen", "account_type": "premium", "cus...
+
+--- Iteration 2 ---
+Tool calls: ['get_order_details(order_id="ord_x9j2k1")']
+  → get_order_details(order_id="ord_x9j2k1"): {"items": [{"product_id": "prod_wireless_kb", "name": "Wireless Keyboard", "quan...
+
+--- Iteration 3 ---
+Tool calls: ['get_order_details(order_id="ord_x9j2k1")']
+  → get_order_details(order_id="ord_x9j2k1"): {"items": [{"product_id": "prod_wireless_kb", "name": "Wireless Keyboard", "quan...
+
+--- Iteration 4 ---
+Tool calls: ['get_order_details(order_id="ord_x9j2k1")']
+  → get_order_details(order_id="ord_x9j2k1"): {"items": [{"product_id": "prod_wireless_kb", "name": "Wireless Keyboard", "quan...
+
+--- Iteration 5 ---
+Tool calls: ['get_order_details(order_id="ord_x9j2k1")']
+  → get_order_details(order_id="ord_x9j2k1"): {"items": [{"product_id": "prod_wireless_kb", "name": "Wireless Keyboard", "quan...
+⚠️  Max iterations reached
+
+✓ Response: <|tool_call_start|>[get_order_details(order_id="ord_x9j2k1")]<|tool_call_end|>...
+
+============================================================
+Processing: Customer mike.rodriguez@startup.io asks: When will my order arrive?. Please look up their account and help answer.
+Current chain depth: 10/8
+============================================================
+⚠️  Chain depth limit reached - resetting chain
+
+--- Iteration 1 ---
+Tool calls: ['lookup_user(email="mike.rodriguez@startup.io")']
+  → lookup_user(email="mike.rodriguez@startup.io"): {"user_id": "usr_3n7q1r8", "name": "Mike Rodriguez", "account_type": "enterprise...
+
+--- Iteration 2 ---
+Tool calls: ['get_order_details(order_id="ord_4p5q6r")']
+  → get_order_details(order_id="ord_4p5q6r"): {"error": "Order not found"}...
+
+--- Iteration 3 ---
+✓ Final answer generated
+
+✓ Response: It seems there was an issue retrieving the order details. Could you please double-check the order ID and try again?...
+
+============================================================
+USE CASE 2: Continuous Query Processing
+============================================================
+
+============================================================
+Processing: Who is the supplier for wireless keyboards?
+Current chain depth: 2/8
+============================================================
+
+--- Iteration 1 ---
+Tool calls: ['get_supplier_info(supplier_id="prod_wireless_kb")']
+  → get_supplier_info(supplier_id="prod_wireless_kb"): {"error": "Supplier not found"}...
+
+--- Iteration 2 ---
+✓ Final answer generated
+
+✓ Processed: Who is the supplier for wireless keyboards?
+  Chain depth: 3
+  Result: It appears there's an issue with the supplier information. Could you please double-check the supplier ID or try again later?...
+
+============================================================
+Processing: What's the stock level of USB-C cables?
+Current chain depth: 3/8
+============================================================
+
+--- Iteration 1 ---
+Tool calls: ['get_territory_info(territory_id="prod_wireless_kb")']
+  → get_territory_info(territory_id="prod_wireless_kb"): {"error": "Territory not found"}...
+
+--- Iteration 2 ---
+✓ Final answer generated
+
+✓ Processed: What's the stock level of USB-C cables?
+  Chain depth: 4
+  Result: It seems there's an issue with the territory information. Could you please double-check the territory ID or try again later?...
+
+============================================================
+Processing: Get contact info for the Logitech supplier
+Current chain depth: 4/8
+============================================================
+
+--- Iteration 1 ---
+Tool calls: ['get_manager_info(manager_id="supplier_logitech_01")']
+  → get_manager_info(manager_id="supplier_logitech_01"): {"error": "Manager not found"}...
+
+--- Iteration 2 ---
+✓ Final answer generated
+
+✓ Processed: Get contact info for the Logitech supplier
+  Chain depth: 5
+  Result: It appears there's an issue with the manager information. Could you please double-check the manager ID or try again later?...

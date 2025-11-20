@@ -1,0 +1,62 @@
+============================================================
+TOOL FORMAT TEST - LFM2
+============================================================
+
+============================================================
+TEST 1: Weather Query
+============================================================
+Query: What's the weather in Paris? Use the get_weather tool.
+
+Raw Response:
+<|tool_call_start|>[get_weather(city="Paris")]<|tool_call_end|>
+
+✓ Tool call detected!
+  Tool call: [get_weather(city="Paris")]
+  ✓ Correct tool: get_weather
+
+============================================================
+TEST 2: Math Query
+============================================================
+Query: Calculate 15 + 27 using the calculate tool.
+
+Raw Response:
+<|tool_call_start|>[calculate(expression="15 + 27")]<|tool_call_end|>
+
+✓ Tool call detected!
+  Tool call: [calculate(expression="15 + 27")]
+  ✓ Correct tool: calculate
+
+============================================================
+TEST 3: Explicit Instruction
+============================================================
+Query: YOU MUST CALL THE get_weather TOOL. Get weather for Tokyo.
+
+Raw Response:
+<|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>
+
+✓ Tool call detected!
+  Tool call: [get_weather(city="Tokyo")]
+  ✓ Correct tool: get_weather
+
+============================================================
+VERIFY: Tool Format Being Sent
+============================================================
+{
+  "type": "function",
+  "function": {
+    "name": "get_weather",
+    "description": "Get the current weather in a city",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The city name"
+        }
+      },
+      "required": [
+        "city"
+      ]
+    }
+  }
+}

@@ -1,0 +1,511 @@
+============================================================
+TOOL CALLING API TEST SUITE - VERBOSE MODE
+Server: http://localhost:8080/v1
+Model: LFM2-8B-A1B-BF16-cuda
+Format: OpenAI nested (type + function object)
+============================================================
+
+============================================================
+TEST 1: Basic Tool Call
+============================================================
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages (1 total):
+  [0] user: What's the weather in Paris?
+Tools: 1 provided
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "<|tool_call_start|>[get_weather(city="Paris")]<|tool_call_end|>"
+      }
+    }
+  ],
+  "created": 1763596473,
+  "model": "LFM2-8B-A1B-BF16-cuda",
+  "system_fingerprint": "b7083-2376b7758",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 13,
+    "prompt_tokens": 84,
+    "total_tokens": 97
+  },
+  "id": "chatcmpl-ELMIx4iLMdyNI9230fIcT4JAwzKPxcyQ",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 84,
+    "prompt_ms": 1555.135,
+    "prompt_per_token_ms": 18.513511904761906,
+    "prompt_per_second": 54.01460323380285,
+    "predicted_n": 13,
+    "predicted_ms": 407.35,
+    "predicted_per_token_ms": 31.334615384615386,
+    "predicted_per_second": 31.913587823738798
+  }
+}
+------------------------------------------------------------
+
+Extracted calls: ['get_weather(city="Paris")']
+Status: ✓ PASS
+
+============================================================
+TEST 2: Tool Visibility
+============================================================
+1 tools: ✓ (1/1 mentioned)
+2 tools: ✓ (2/2 mentioned)
+3 tools: ✓ (3/3 mentioned)
+4 tools: ✓ (4/4 mentioned)
+5 tools: ✓ (5/5 mentioned)
+6 tools: ✓ (6/6 mentioned)
+7 tools: ✓ (7/7 mentioned)
+8 tools: ✓ (8/8 mentioned)
+
+============================================================
+TEST 3: Sequential Multi-Tool Calls
+============================================================
+
+--- Testing 1 call(s): What's the weather in Paris? ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages (1 total):
+  [0] user: What's the weather in Paris?
+Tools: 3 provided
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "<|tool_call_start|>[get_weather(city="Paris")]<|tool_call_end|>"
+      }
+    }
+  ],
+  "created": 1763596518,
+  "model": "LFM2-8B-A1B-BF16-cuda",
+  "system_fingerprint": "b7083-2376b7758",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 13,
+    "prompt_tokens": 192,
+    "total_tokens": 205
+  },
+  "id": "chatcmpl-xElH34veOAnPUfRmZZOwIGwUMx26nVEa",
+  "timings": {
+    "cache_n": 72,
+    "prompt_n": 120,
+    "prompt_ms": 2613.381,
+    "prompt_per_token_ms": 21.778174999999997,
+    "prompt_per_second": 45.917529820565775,
+    "predicted_n": 13,
+    "predicted_ms": 432.722,
+    "predicted_per_token_ms": 33.28630769230769,
+    "predicted_per_second": 30.0423828693711
+  }
+}
+------------------------------------------------------------
+
+Result: ✓ Expected 1, got 1
+Calls: ['get_weather(city="Paris")']
+
+--- Testing 2 call(s): Get weather in Paris and calculate 5+3 ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages (1 total):
+  [0] user: Get weather in Paris and calculate 5+3
+Tools: 3 provided
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "<|tool_call_start|>[get_weather(city="Paris"), calculate(expr="5+3")]<|tool_call_end|>"
+      }
+    }
+  ],
+  "created": 1763596521,
+  "model": "LFM2-8B-A1B-BF16-cuda",
+  "system_fingerprint": "b7083-2376b7758",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 21,
+    "prompt_tokens": 195,
+    "total_tokens": 216
+  },
+  "id": "chatcmpl-gXoisD37d2t98zKJ0NnRjyEKJT3RUQw4",
+  "timings": {
+    "cache_n": 72,
+    "prompt_n": 123,
+    "prompt_ms": 2610.967,
+    "prompt_per_token_ms": 21.227373983739838,
+    "prompt_per_second": 47.10898299365714,
+    "predicted_n": 21,
+    "predicted_ms": 681.758,
+    "predicted_per_token_ms": 32.464666666666666,
+    "predicted_per_second": 30.80271885331745
+  }
+}
+------------------------------------------------------------
+
+Result: ✓ Expected 2, got 2
+Calls: ['get_weather(city="Paris")', 'calculate(expr="5+3")']
+
+--- Testing 3 call(s): Get weather in Paris, calculate 10*2, and search for 'AI news' ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages (1 total):
+  [0] user: Get weather in Paris, calculate 10*2, and search for 'AI news'
+Tools: 3 provided
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "<|tool_call_start|>[get_weather(city="Paris"), calculate(expr="10*2"), search_web(query="AI news")]<|tool_call_end|>"
+      }
+    }
+  ],
+  "created": 1763596525,
+  "model": "LFM2-8B-A1B-BF16-cuda",
+  "system_fingerprint": "b7083-2376b7758",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 30,
+    "prompt_tokens": 203,
+    "total_tokens": 233
+  },
+  "id": "chatcmpl-w8sQ3gJDkVEPxZtn5HwrN54ayH1IT7um",
+  "timings": {
+    "cache_n": 72,
+    "prompt_n": 131,
+    "prompt_ms": 2636.508,
+    "prompt_per_token_ms": 20.12601526717557,
+    "prompt_per_second": 49.68693438442061,
+    "predicted_n": 30,
+    "predicted_ms": 995.28,
+    "predicted_per_token_ms": 33.176,
+    "predicted_per_second": 30.14227152158187
+  }
+}
+------------------------------------------------------------
+
+Result: ✓ Expected 3, got 3
+Calls: ['get_weather(city="Paris")', 'calculate(expr="10*2")', 'search_web(query="AI news")']
+
+============================================================
+TEST 4: Multi-Turn Conversation
+============================================================
+
+============================================================
+TURN 1: Initial query
+============================================================
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages (1 total):
+  [0] user: What's the weather in Tokyo?
+Tools: 2 provided
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "<|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>"
+      }
+    }
+  ],
+  "created": 1763596527,
+  "model": "LFM2-8B-A1B-BF16-cuda",
+  "system_fingerprint": "b7083-2376b7758",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 14,
+    "prompt_tokens": 137,
+    "total_tokens": 151
+  },
+  "id": "chatcmpl-x6ucsSpC4tQG6Lmeo9QPHnxX0ySevau0",
+  "timings": {
+    "cache_n": 72,
+    "prompt_n": 65,
+    "prompt_ms": 1373.371,
+    "prompt_per_token_ms": 21.128784615384617,
+    "prompt_per_second": 47.328798991678134,
+    "predicted_n": 14,
+    "predicted_ms": 445.484,
+    "predicted_per_token_ms": 31.820285714285713,
+    "predicted_per_second": 31.426493431862873
+  }
+}
+------------------------------------------------------------
+
+Extracted calls: ['get_weather(city="Tokyo")']
+
+============================================================
+TURN 2: After tool execution
+============================================================
+
+Full conversation state before Turn 2:
+  [0] user: What's the weather in Tokyo?...
+  [1] assistant: <|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>
+  [2] tool: [{"temp": 22, "condition": "sunny"}]...
+  [3] user: Now calculate 15 * 4...
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages (4 total):
+  [0] user: What's the weather in Tokyo?
+  [1] assistant: <|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>
+  [2] tool: [{"temp": 22, "condition": "sunny"}]...
+  [3] user: Now calculate 15 * 4
+Tools: 2 provided
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The result of 15 multiplied by 4 is 60."
+      }
+    }
+  ],
+  "created": 1763596528,
+  "model": "LFM2-8B-A1B-BF16-cuda",
+  "system_fingerprint": "b7083-2376b7758",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 14,
+    "prompt_tokens": 205,
+    "total_tokens": 219
+  },
+  "id": "chatcmpl-0BeCh4Qixodgql3Y3I5TEczduswgqoj7",
+  "timings": {
+    "cache_n": 150,
+    "prompt_n": 55,
+    "prompt_ms": 1193.597,
+    "prompt_per_token_ms": 21.701763636363637,
+    "prompt_per_second": 46.079204287544286,
+    "predicted_n": 14,
+    "predicted_ms": 444.434,
+    "predicted_per_token_ms": 31.745285714285718,
+    "predicted_per_second": 31.50074026739628
+  }
+}
+------------------------------------------------------------
+
+Extracted calls: []
+
+✗ FAIL: No tool calls in turn 2
+
+Possible reasons:
+  1. Model interpreted tool result and answered in natural language
+  2. Model doesn't maintain tool calling context across turns
+  3. Tool role message format may be incorrect
+
+============================================================
+TEST 4B: Multi-Turn with Different Tool Response Formats
+============================================================
+
+--- Format 1: Tool result as JSON array string ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages (4 total):
+  [0] user: What's the weather in Tokyo?
+  [1] assistant: <|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>
+  [2] tool: [{"temp": 22, "condition": "sunny"}]
+  [3] user: Calculate 15 * 4
+Tools: 2 provided
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "<|tool_call_start|>[calculate(expr="15 * 4")]<|tool_call_end|>"
+      }
+    }
+  ],
+  "created": 1763596532,
+  "model": "LFM2-8B-A1B-BF16-cuda",
+  "system_fingerprint": "b7083-2376b7758",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 15,
+    "prompt_tokens": 205,
+    "total_tokens": 220
+  },
+  "id": "chatcmpl-rHHOKEeAB666tz9V5vRGSsNXk3x0VST1",
+  "timings": {
+    "cache_n": 150,
+    "prompt_n": 55,
+    "prompt_ms": 1181.117,
+    "prompt_per_token_ms": 21.474854545454544,
+    "prompt_per_second": 46.566089557596754,
+    "predicted_n": 15,
+    "predicted_ms": 481.912,
+    "predicted_per_token_ms": 32.12746666666666,
+    "predicted_per_second": 31.126014708079484
+  }
+}
+------------------------------------------------------------
+Result: ✓ - Got 1 calls
+
+--- Format 2: Tool result as plain string ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages (4 total):
+  [0] user: What's the weather in London?
+  [1] assistant: <|tool_call_start|>[get_weather(city="London")]<|tool_call_end|>
+  [2] tool: Temperature is 22°C, sunny
+  [3] user: Calculate 20 * 3
+Tools: 2 provided
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The result of 20 multiplied by 3 is 60."
+      }
+    }
+  ],
+  "created": 1763596535,
+  "model": "LFM2-8B-A1B-BF16-cuda",
+  "system_fingerprint": "b7083-2376b7758",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 14,
+    "prompt_tokens": 195,
+    "total_tokens": 209
+  },
+  "id": "chatcmpl-UeSvfwO8CrooduPnMQBBnAEWONoOCWPZ",
+  "timings": {
+    "cache_n": 149,
+    "prompt_n": 46,
+    "prompt_ms": 1165.993,
+    "prompt_per_token_ms": 25.347673913043476,
+    "prompt_per_second": 39.451351766262746,
+    "predicted_n": 14,
+    "predicted_ms": 442.956,
+    "predicted_per_token_ms": 31.639714285714287,
+    "predicted_per_second": 31.605847984901434
+  }
+}
+------------------------------------------------------------
+Result: ✗ - Got 0 calls
+
+--- Format 3: Tool result with response markers ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages (4 total):
+  [0] user: What's the weather in Berlin?
+  [1] assistant: <|tool_call_start|>[get_weather(city="Berlin")]<|tool_call_end|>
+  [2] tool: <|tool_response_start|>[{"temp": 22, "condition": "sunny"}]<|tool_response_end|>
+  [3] user: Calculate 25 * 2
+Tools: 2 provided
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "<|tool_call_start|>[calculate(expr="25 * 2")]<|tool_call_end|>"
+      }
+    }
+  ],
+  "created": 1763596539,
+  "model": "LFM2-8B-A1B-BF16-cuda",
+  "system_fingerprint": "b7083-2376b7758",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 15,
+    "prompt_tokens": 207,
+    "total_tokens": 222
+  },
+  "id": "chatcmpl-Uhs7No8COCxI1jTSwaLd0yYFW6NzjI1I",
+  "timings": {
+    "cache_n": 149,
+    "prompt_n": 58,
+    "prompt_ms": 1186.409,
+    "prompt_per_token_ms": 20.4553275862069,
+    "prompt_per_second": 48.88701956913678,
+    "predicted_n": 15,
+    "predicted_ms": 477.579,
+    "predicted_per_token_ms": 31.8386,
+    "predicted_per_second": 31.408416199204737
+  }
+}
+------------------------------------------------------------
+Result: ✓ - Got 1 calls
+
+============================================================
+SUMMARY
+============================================================
+Tool Visibility: 8/8 tools
+Sequential Calls: 3 max
+Multi-Turn: ✗ FAIL
+============================================================

@@ -1,0 +1,86 @@
+============================================================
+TOOL CHAINING LIMITS - REALISTIC DATA
+============================================================
+
+============================================================
+TEST 1: CHAIN DEPTH LIMIT
+============================================================
+
+--- Step 1: lookup_user ---
+Query: Look up the user with email sarah.chen@techcorp.com
+Calls: ['lookup_user(email="sarah.chen@techcorp.com")']
+Correct tool: ✓
+Result: {"user_id": "usr_8k2m9p4", "name": "Sarah Chen", "account_type": "premium", "customer_since": "2021-...
+Model interpretation: <|tool_call_start|>[lookup_user(email="sarah.chen@techcorp.com")]<|tool_call_end...
+
+--- Step 2: get_user_orders ---
+Query: Get all orders for this user
+Calls: ['get_user_orders(user_id="usr_8k2m9p4")']
+Correct tool: ✓
+Result: [{"order_id": "ord_x9j2k1", "date": "2024-11-10", "total": 249.99, "status": "delivered"}, {"order_i...
+Model interpretation: <|tool_call_start|>[get_order_details(order_id="ord_x9j2k1")]<|tool_call_end|>...
+
+--- Step 3: get_order_details ---
+Query: Get details of the first order
+Calls: ['get_order_details(order_id="ord_x9j2k1")']
+Correct tool: ✓
+Result: {"items": [{"product_id": "prod_wireless_kb", "name": "Wireless Keyboard", "quantity": 2, "price": 7...
+Model interpretation: <|tool_call_start|>[check_inventory(product_id="prod_wireless_kb")]<|tool_call_e...
+
+--- Step 4: check_inventory ---
+Query: Check inventory for the first product in that order
+Calls: ['check_inventory(product_id="prod_wireless_kb")']
+Correct tool: ✓
+Result: {"stock": 847, "supplier_id": "sup_logitech", "reorder_point": 200}...
+Model interpretation: <|tool_call_start|>[get_supplier_info(supplier_id="sup_logitech")]<|tool_call_en...
+
+--- Step 5: get_supplier_info ---
+Query: Get the supplier information for this product
+Calls: ['get_contact_details(contact_id="sup_logitech")']
+Correct tool: ✗
+✗ FAILED - Wrong tool called
+Chain broke at depth 5
+
+============================================================
+TEST 2: HISTORY RETENTION LIMIT
+============================================================
+
+--- Recall Test: Step 1 ---
+Query: What was the email address from step 1?
+Expected to mention: sarah.chen@techcorp.com
+Response: <|tool_call_start|>[get_contact_details(contact_id="contact_8k2m9p4")]<|tool_call_end|>...
+✗ FAILED - Could not recall
+
+--- Recall Test: Step 1 ---
+Query: What was the user_id from step 1?
+Expected to mention: usr_8k2m9p4
+Response: <|tool_call_start|>[get_user_orders(user_id="usr_8k2m9p4")]<|tool_call_end|>...
+✓ SUCCESS - Correctly recalled
+
+--- Recall Test: Step 2 ---
+Query: What was the first order_id from step 2?
+Expected to mention: ord_x9j2k1
+Response: <|tool_call_start|>[get_order_details(order_id="ord_x9j2k1")]<|tool_call_end|>...
+✓ SUCCESS - Correctly recalled
+
+--- Recall Test: Step 3 ---
+Query: What was the first product_id from step 3?
+Expected to mention: prod_wireless_kb
+Response: <|tool_call_start|>[get_territory_info(territory_id="territory_8k2m9p4")]<|tool_call_end|>...
+✗ FAILED - Could not recall
+
+--- Recall Test: Step 4 ---
+Query: What was the supplier_id from step 4?
+Expected to mention: sup_logitech
+Response: <|tool_call_start|>[get_manager_info(manager_id="manager_8k2m9p4")]<|tool_call_end|>...
+✗ FAILED - Could not recall
+
+--- Recall Summary ---
+Successful recalls: 2/5 (40%)
+
+============================================================
+FINAL SUMMARY
+============================================================
+Maximum Chain Depth: 4 steps
+History Retention: 2/5 recalls successful
+============================================================

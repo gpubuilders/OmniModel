@@ -1,0 +1,50 @@
+============================================================
+TOOL CALLING API TEST SUITE
+Server: http://localhost:8080/v1
+Model: LFM2-8B-A1B-BF16-cuda
+Format: OpenAI nested (type + function object)
+============================================================
+
+============================================================
+TEST 1: Basic Tool Call
+============================================================
+Response: <|tool_call_start|>[get_weather(city="Paris")]<|tool_call_end|>
+Calls: ['get_weather(city="Paris")']
+Status: ✓ PASS
+
+============================================================
+TEST 2: Tool Visibility
+============================================================
+1 tools: ✓ (1/1 mentioned)
+2 tools: ✓ (2/2 mentioned)
+3 tools: ✓ (3/3 mentioned)
+4 tools: ✓ (4/4 mentioned)
+5 tools: ✓ (5/5 mentioned)
+6 tools: ✓ (6/6 mentioned)
+7 tools: ✓ (7/7 mentioned)
+8 tools: ✓ (8/8 mentioned)
+
+============================================================
+TEST 3: Sequential Multi-Tool Calls
+============================================================
+1 calls: ✓ (got 1)
+  ['get_weather(city="Paris")']
+2 calls: ✓ (got 2)
+  ['get_weather(city="Paris")', 'calculate(expr="5+3")']
+3 calls: ✓ (got 3)
+  ['get_weather(city="Paris")', 'calculate(expr="10*2")', 'search_web(query="AI news")']
+
+============================================================
+TEST 4: Multi-Turn Conversation
+============================================================
+Turn 1: 1 calls → ['get_weather(city="Tokyo")']
+Turn 2: 0 calls → []
+Status: ✗ FAIL
+
+============================================================
+SUMMARY
+============================================================
+Tool Visibility: 8/8 tools
+Sequential Calls: 3 max
+Multi-Turn: ✗ FAIL
+============================================================

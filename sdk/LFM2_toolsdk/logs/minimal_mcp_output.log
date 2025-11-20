@@ -1,0 +1,45 @@
+MCP Tools: ['read_file', 'read_text_file', 'read_media_file', 'read_multiple_files', 'write_file', 'edit_file', 'create_directory', 'list_directory', 'list_directory_with_sizes', 'directory_tree', 'move_file', 'search_files', 'get_file_info', 'list_allowed_directories']
+
+============================================================
+TEST 1: List directory contents
+============================================================
+
+Answer: [DIR] /tmp  
+[FILE] app.log  
+[FILE] config.json  
+[FILE] logs/error.log  
+[FILE] user_data/backup_2024-01-01.tar.gz  
+[FILE] README.md
+
+
+============================================================
+TEST 2: Create file and read it back
+============================================================
+
+Answer: ```text
+Hello from MCP!
+```
+
+
+============================================================
+TEST 3: Chain - List, Write, Read, Get Info
+============================================================
+
+Answer: ```json
+{
+  "directory_contents": "[DIR] /tmp\n[FILE] /tmp/chain_test.txt\n[DIR]",
+  "file_content": "Chain test data",
+  "file_info": {
+    "path": "/tmp/chain_test.txt",
+    "size_bytes": 15,
+    "permissions": "644",
+    "last_modified": "2025-05-27T10:30:00Z",
+    "type": "file"
+  }
+}
+```
+
+
+============================================================
+ALL TESTS COMPLETE
+============================================================

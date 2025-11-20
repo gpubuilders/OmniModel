@@ -1,0 +1,16 @@
+======================================================================
+DEEP RESEARCHER - Brave Search API
+======================================================================
+Commands:
+  research <topic>        - Start research (quick)
+  deep-research <topic>   - Deep research (thorough)
+  quit                    - Exit
+======================================================================
+
+> 
+✗ Error: EOF when reading a line
+
+> 
+✗ Error: EOF when reading a line
+
+[Output truncated due to interactive nature of the script - the script waits for user input and does not proceed without it]

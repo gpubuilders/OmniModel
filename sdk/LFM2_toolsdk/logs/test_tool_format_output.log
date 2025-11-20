@@ -1,0 +1,201 @@
+============================================================
+LFM2 Tool Format Deep Diagnostic
+============================================================
+
+Hypothesis: Server expects nested structure with both
+'type' field AND separate 'function' object
+============================================================
+
+============================================================
+Testing: Format 1: OpenAI nested structure (type + function object)
+============================================================
+Tools structure:
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "get_weather",
+      "description": "Get current weather",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ci...
+✅ SUCCESS!
+Response: <|tool_call_start|>[get_weather(city="Paris")]<|tool_call_end|>...
+Tool calls found: [get_weather(city="Paris")]
+
+============================================================
+Testing: Format 2: type='tool' with function object
+============================================================
+Tools structure:
+[
+  {
+    "type": "tool",
+    "function": {
+      "name": "get_weather",
+      "description": "Get current weather",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "city"
+...
+❌ FAILED
+   Error: Failed to parse tools: Unsupported tool type: {"type":"tool","function":{"name":"get_weather","description":"Get current weather","parameters":{"type"
+
+============================================================
+Testing: Format 3: Flat with type='function' and function=name
+============================================================
+Tools structure:
+[
+  {
+    "type": "function",
+    "function": "get_weather",
+    "description": "Get current weather",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "city"
+      ]
+    }
+  }
+]...
+❌ FAILED
+   Error: Failed to parse tools: [json.exception.type_error.304] cannot use at() with string; tools = [
+  {
+    "type": "function",
+    "function": "get_weather
+
+============================================================
+Testing: Format 4: type='callable'
+============================================================
+Tools structure:
+[
+  {
+    "type": "callable",
+    "name": "get_weather",
+    "description": "Get current weather",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "city"
+      ]
+    }
+  }
+]...
+❌ FAILED
+   Error: Failed to parse tools: Unsupported tool type: {"type":"callable","name":"get_weather","description":"Get current weather","parameters":{"type":"object
+
+============================================================
+Testing: Format 5: type='string' (weird but let's try)
+============================================================
+Tools structure:
+[
+  {
+    "type": "string",
+    "name": "get_weather",
+    "description": "Get current weather",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "city"
+      ]
+    }
+  }
+]...
+❌ FAILED
+   Error: Failed to parse tools: Unsupported tool type: {"type":"string","name":"get_weather","description":"Get current weather","parameters":{"type":"object",
+
+============================================================
+Testing: Format 6: function as top-level wrapper
+============================================================
+Tools structure:
+[
+  {
+    "function": {
+      "type": "function",
+      "name": "get_weather",
+      "description": "Get current weather",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "...
+❌ FAILED
+   Error: Failed to parse tools: Missing tool type: {"function":{"type":"function","name":"get_weather","description":"Get current weather","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]}}}
+
+============================================================
+Testing: Format 7: Full JSON schema format
+============================================================
+Tools structure:
+[
+  {
+    "type": "function",
+    "name": "get_weather",
+    "description": "Get current weather",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "Cit...
+❌ FAILED
+   Error: Failed to parse tools: Missing tool function: {"type":"function","name":"get_weather","description":"Get current weather","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"city":{"type":"string","description":"City name"}},"required":["city"]}}
+
+============================================================
+Testing: Format 8: Direct properties (no parameters wrapper)
+============================================================
+Tools structure:
+[
+  {
+    "type": "function",
+    "name": "get_weather",
+    "description": "Get current weather",
+    "properties": {
+      "city": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "city"
+    ]
+  }
+]...
+❌ FAILED
+   Error: Failed to parse tools: Missing tool function: {"type":"function","name":"get_weather","description":"Get current weather","properties":{"city":{"type":"string"}},"required":["city"]}
+
+============================================================
+If all failed, check:
+1. Server source code for tool parsing logic
+2. Server logs for detailed stack trace
+3. Try calling /v1/models endpoint to check capabilities
+============================================================

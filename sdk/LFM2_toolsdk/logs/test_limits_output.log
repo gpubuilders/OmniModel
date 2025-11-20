@@ -1,0 +1,215 @@
+============================================================
+TOOL CALLING LIMITS - THREE-AXIS TESTING
+Server: http://localhost:8080/v1
+Model: LFM2-1.2B-Tool-Q4_K_M-cuda
+============================================================
+
+============================================================
+AXIS 1: Single Tool - Parameter Scaling
+============================================================
+
+--- Testing 1 parameters ---
+  Query: Call the test tool with these values: value1...
+  Calls: ['test_tool(param_1="value1")']
+  Final: It seems like the test tool is not functioning as expected. ...
+  Result: ✓ - Included 1/1 params
+
+--- Testing 2 parameters ---
+  Query: Call the test tool with these values: value1, value2...
+  Calls: ['test_tool(param_1="value1", param_2="value2")']
+  Final: <|tool_call_start|>[test_tool(param_1="mocked_result", param...
+  Result: ✓ - Included 2/2 params
+
+--- Testing 5 parameters ---
+  Query: Call the test tool with these values: value1, value2, value3...
+  Calls: ['test_tool(param_1="value1", param_2="value2", param_3="value3", param_4="value4", param_5="value5")']
+  Final: The test tool has been invoked with the specified parameters...
+  Result: ✓ - Included 5/5 params
+
+--- Testing 10 parameters ---
+  Query: Call the test tool with these values: value1, value2, value3...
+  Calls: ['test_tool(param_1="value1", param_2="value2", param_3="value3", param_4="value4", param_5="value5", param_6="value6", param_7="value7", param_8="value8", param_9="value9", param_10="value10")']
+  Final: The tool test was successful with the provided parameters. H...
+  Result: ✓ - Included 10/10 params
+
+--- Testing 15 parameters ---
+  Query: Call the test tool with these values: value1, value2, value3...
+  Calls: ['test_tool(param_1="value1", param_2="value2", param_3="value3", param_4="value4", param_5="value5", param_6="value6", param_7="value7", param_8="value8", param_9="value9", param_10="value10", param_11="value11", param_12="value12", param_13="value13", param_14="value14", param_15="value15")']
+  Final: The provided tool response indicates a successful test execu...
+  Result: ✓ - Included 15/15 params
+
+--- Testing 20 parameters ---
+  Query: Call the test tool with these values: value1, value2, value3...
+  Calls: ['test_tool(param_1="value1", param_2="value2", param_3="value3", param_4="value4", param_5="value5", param_6="value6", param_7="value7", param_8="value8", param_9="value9", param_10="value10", param_11="value11", param_12="value12", param_13="value13", param_14="value14", param_15="value15", param_16="value16", param_17="value17", param_18="value18", param_19="value19", param_20="value20")']
+  Final: The tool was called with 20 parameters, but no actual tool f...
+  Result: ✓ - Included 20/20 params
+
+--- Testing 25 parameters ---
+  Query: Call the test tool with these values: value1, value2, value3...
+  Calls: ['test_tool(param_1="value1", param_2="value2", param_3="value3", param_4="value4", param_5="value5", param_6="value6", param_7="value7", param_8="value8", param_9="value9", param_10="value10", param_11="param_11", param_12="value12", param_13="value13", param_14="value14", param_15="value15", param_16="value16", param_17="value17", param_18="value18", param_19="value19", param_20="value20", param_21="value21", param_22="value22", param_23="value23", param_24="value24", param_25="value25")']
+  Final: The tool has been tested with the provided parameters. Here ...
+  Result: ✓ - Included 25/25 params
+
+--- Testing 30 parameters ---
+  Query: Call the test tool with these values: value1, value2, value3...
+  Calls: ['test_tool(param_1="value1", param_2="value2", param_3="value3", param_4="value4", param_5="value5", param_6="value6", param_7="value7", param_8="value8", param_9="value9", param_10="value10", param_11="value11", param_12="value12", param_13="value13", param_14="value14", param_15="value15", param_16="value16", param_17="value17", param_18="value18", param_19="value19", param_20="value20", param_21="value21", param_22="value22", param_23="value23", param_24="value24", param_25="value25", param_26="value26", param_27="value27", param_28="value28", param_29="value29", param_30="value30")']
+  Final: It looks like the tool is processing the parameters you've p...
+  Result: ✓ - Included 30/30 params
+
+------------------------------------------------------------
+AXIS 1 SUMMARY:
+  1 params: ✓ (1/1 included)
+  2 params: ✓ (2/2 included)
+  5 params: ✓ (5/5 included)
+  10 params: ✓ (10/10 included)
+  15 params: ✓ (15/15 included)
+  20 params: ✓ (20/20 included)
+  25 params: ✓ (25/25 included)
+  30 params: ✓ (30/30 included)
+
+Limit: 30 parameters
+------------------------------------------------------------
+
+============================================================
+AXIS 2: Multiple Tools - Simple Parameters
+============================================================
+
+--- Testing 1 tools ---
+  Query: Use tool_1 with input 'test'...
+  Calls: ['tool_1(input="test")']
+  Final: <|tool_call_start|>[tool_1(input="test")]<|tool_call_end|>...
+  Result: ✓
+
+--- Testing 5 tools ---
+  Query: Use tool_1 with input 'test'...
+  Calls: ['tool_1(input="test")']
+  Final: <|tool_call_start|>[tool_1(input="test")]<|tool_call_end|>...
+  Result: ✓
+
+--- Testing 10 tools ---
+  Query: Use tool_1 with input 'test'...
+  Calls: ['tool_1(input="test")']
+  Final: <|tool_call_start|>[tool_1(input="test")]<|tool_call_end|>...
+  Result: ✓
+
+--- Testing 20 tools ---
+  Query: Use tool_1 with input 'test'...
+  Calls: ['tool_1(input="test")']
+  Final: <|tool_call_start|>[tool_1(input="test")]<|tool_call_end|>...
+  Result: ✓
+
+--- Testing 30 tools ---
+  Query: Use tool_1 with input 'test'...
+  Calls: ['tool_1(input="test")']
+  Final: <|tool_call_start|>[tool_1(input="test")]<|tool_call_end|>...
+  Result: ✓
+
+--- Testing 50 tools ---
+  Query: Use tool_1 with input 'test'...
+  Calls: ['tool_1(input="test")']
+  Final: <|tool_call_start|>[tool_1(input="test")]<|tool_call_end|>...
+  Result: ✓
+
+--- Testing 75 tools ---
+  Query: Use tool_1 with input 'test'...
+  Calls: ['tool_1(input="test")']
+  Final: <|tool_call_start|>[tool_1(input="test")]<|tool_call_end|>...
+  Result: ✓
+
+--- Testing 100 tools ---
+  Query: Use tool_1 with input 'test'...
+  Calls: ['tool_1(input="test")']
+  Final: <|tool_call_start|>[tool_2(input="test")]<|tool_call_end|>...
+  Result: ✓
+
+------------------------------------------------------------
+AXIS 2 SUMMARY:
+  1 tools: ✓
+  5 tools: ✓
+  10 tools: ✓
+  20 tools: ✓
+  30 tools: ✓
+  50 tools: ✓
+  75 tools: ✓
+  100 tools: ✓
+
+Limit: 100 tools
+------------------------------------------------------------
+
+============================================================
+AXIS 3: Sequential Calls - Simple Tools
+============================================================
+
+--- Testing 1 sequential calls ---
+  Query: Call these tools in order: tool_1...
+  Calls: ['tool_1()']
+  Final: <|tool_call_start|>[tool_1(input="mocked_result")]<|tool_cal...
+  Result: ✓ - Got 1/1 calls, 1 correct
+
+--- Testing 2 sequential calls ---
+  Query: Call these tools in order: tool_1, tool_2...
+  Calls: ['tool_1(input="tool_1")', 'tool_2(input="tool_2")']
+  Final: <|tool_call_start|>[tool_1(input="tool_1"), tool_2(input="to...
+  Result: ✓ - Got 2/2 calls, 2 correct
+
+--- Testing 3 sequential calls ---
+  Query: Call these tools in order: tool_1, tool_2, tool_3...
+  Calls: ['tool_1(input="tool_1")', 'tool_2(input="tool_2")', 'tool_3(input="tool_3")']
+  Final: <|tool_call_start|>[tool_1(input="mocked_data_1"), tool_2(in...
+  Result: ✓ - Got 3/3 calls, 3 correct
+
+--- Testing 5 sequential calls ---
+  Query: Call these tools in order: tool_1, tool_2, tool_3, tool_4, t...
+  Calls: ['tool_1(input="tool_1")', 'tool_2(input="tool_2")', 'tool_3(input="tool_3")', 'tool_4(input="tool_4")', 'tool_5(input="tool_5")']
+  Final: <|tool_call_start|>[tool_1(input="mocked_input_1"), tool_2(i...
+  Result: ✓ - Got 5/5 calls, 5 correct
+
+--- Testing 7 sequential calls ---
+  Query: Call these tools in order: tool_1, tool_2, tool_3, tool_4, t...
+  Calls: ['tool_1(input="tool_1")', 'tool_2(input="tool_2")', 'tool_3(input="tool_3")', 'tool_4(input="tool_4")', 'tool_5(input="tool_5")', 'tool_6(input="tool_6")', 'tool_7(input="tool_7")']
+  Final: <|tool_call_start|>[tool_1(input="mocked_input_1"), tool_2(i...
+  Result: ✓ - Got 7/7 calls, 7 correct
+
+--- Testing 10 sequential calls ---
+  Query: Call these tools in order: tool_1, tool_2, tool_3, tool_4, t...
+  Calls: ['tool_1(input="Hello, world!")']
+  Final: <|tool_call_start|>[tool_2(input="mocked_result")]<|tool_cal...
+  Result: ✗ - Got 1/10 calls, 1 correct
+
+--- Testing 15 sequential calls ---
+  Query: Call these tools in order: tool_1, tool_2, tool_3, tool_4, t...
+  Calls: ['tool_1(input="start process")', 'tool_2(input="input_data")', 'tool_3(input="processed_data")', 'tool_4(input="final_output")', 'tool_5(input="user_feedback")', 'tool_6(input="analysis_results")', 'tool_7(input="validation_checks")', 'tool_8(input="data_cleaning")', 'tool_9(input="data_preparation")', 'tool_10(input="data_analysis")', 'tool_11(input="report_generation")', 'tool_12(input="data_distribution")', 'tool_13(input="data_validation")', 'tool_14(input="data_synthesis")', 'tool_15(input="final_report_draft")']
+  Final: {
+  "tool_response": {
+    "content": "{\"status\": \"succes...
+  Result: ✓ - Got 15/15 calls, 15 correct
+
+--- Testing 20 sequential calls ---
+  Query: Call these tools in order: tool_1, tool_2, tool_3, tool_4, t...
+  Calls: ['tool_1(input="start process 1")', 'tool_2(input="input 2")', 'tool_3(input="input 3")', 'tool_4(input="input 4")', 'tool_5(input="input 5")', 'tool_6(input="input 6")', 'tool_7(input="input 7")', 'tool_8(input="input 8")', 'tool_9(input="input 9")', 'tool_10(input="input 10")', 'tool_11(input="input 11")', 'tool_12(input="input 12")', 'tool_13(input="input 13")', 'tool_14(input="input 14")', 'tool_15(input="input 15")', 'tool_16(input="input 16")', 'tool_17(input="input 17")', 'tool_18(input="input 18")', 'tool_19(input="input 19")', 'tool_20(input="input 20")']
+  Final: {
+  "tool_response": {
+    "content": "{\"status\": \"succes...
+  Result: ✓ - Got 20/20 calls, 20 correct
+
+------------------------------------------------------------
+AXIS 3 SUMMARY:
+  1 calls: ✓ (got 1, 1 correct)
+  2 calls: ✓ (got 2, 2 correct)
+  3 calls: ✓ (got 3, 3 correct)
+  5 calls: ✓ (got 5, 5 correct)
+  7 calls: ✓ (got 7, 7 correct)
+  10 calls: ✗
+  15 calls: ✓ (got 15, 15 correct)
+  20 calls: ✓ (got 20, 20 correct)
+
+Limit: 20 sequential calls
+------------------------------------------------------------
+
+============================================================
+FINAL SUMMARY - MODEL LIMITS
+============================================================
+Axis 1 (Parameters):      30 max parameters
+Axis 2 (Multiple Tools):  100 max tools
+Axis 3 (Sequential):      20 max sequential calls
+============================================================

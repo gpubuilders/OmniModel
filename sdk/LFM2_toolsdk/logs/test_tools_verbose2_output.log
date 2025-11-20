@@ -1,0 +1,244 @@
+============================================================
+TOOL CALLING API TEST SUITE - CORRECTED
+Server: http://localhost:8080/v1
+Model: LFM2-8B-A1B-BF16-cuda
+============================================================
+
+============================================================
+TEST 1: Basic Tool Call
+============================================================
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 1 total
+  [0] user: What's the weather in Paris?
+Tools: 1 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: <|tool_call_start|>[get_weather(city="Paris")]<|tool_call_end|>
+Finish reason: stop
+Tokens: {'completion_tokens': 13, 'prompt_tokens': 87, 'total_tokens': 100}
+
+Extracted calls: ['get_weather(city="Paris")']
+Status: ✓ PASS
+
+============================================================
+TEST 2: Tool Visibility
+============================================================
+1 tools: ✓ (1/1 mentioned)
+2 tools: ✓ (2/2 mentioned)
+3 tools: ✓ (3/3 mentioned)
+4 tools: ✓ (4/4 mentioned)
+5 tools: ✓ (5/5 mentioned)
+
+============================================================
+TEST 3: Sequential Multi-Tool Calls
+============================================================
+
+--- Testing 1 call(s) ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 1 total
+  [0] user: What's the weather in Paris?
+Tools: 3 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: <|tool_call_start|>[get_weather(city="Paris")]<|tool_call_end|>
+Finish reason: stop
+Tokens: {'completion_tokens': 13, 'prompt_tokens': 200, 'total_tokens': 213}
+
+Result: ✓ Expected 1, got 1
+Calls: ['get_weather(city="Paris")']
+
+--- Testing 2 call(s) ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 1 total
+  [0] user: Get weather in Paris and then search the web for 'AI news'
+Tools: 3 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: <|tool_call_start|>[get_weather(city="Paris"), search_web(query="AI news")]<|tool_call_end|>
+Finish reason: stop
+Tokens: {'completion_tokens': 22, 'prompt_tokens': 207, 'total_tokens': 229}
+
+Result: ✓ Expected 2, got 2
+Calls: ['get_weather(city="Paris")', 'search_web(query="AI news")']
+
+--- Testing 3 call(s) ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 1 total
+  [0] user: Get weather in Paris, search for 'AI news', and get the time in UTC
+Tools: 3 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: <|tool_call_start|>[get_weather(city="Paris"), search_web(query="AI news"), calculate(expr="now UTC time in hours")]<|tool_call_end|>
+Finish reason: stop
+Tokens: {'completion_tokens': 32, 'prompt_tokens': 210, 'total_tokens': 242}
+
+Result: ✓ Expected 3, got 3
+Calls: ['get_weather(city="Paris")', 'search_web(query="AI news")', 'calculate(expr="now UTC time in hours")']
+
+============================================================
+TEST 4A: Multi-Turn with Tool Execution
+============================================================
+
+--- TURN 1: User asks about weather ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 1 total
+  [0] user: What's the weather in Tokyo?
+Tools: 2 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: <|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>
+Finish reason: stop
+Tokens: {'completion_tokens': 14, 'prompt_tokens': 148, 'total_tokens': 162}
+Tool calls: ['get_weather(city="Tokyo")']
+
+--- EXECUTING TOOL ---
+Tool result: {"city": "Tokyo", "temperature": 22, "condition": "sunny", "humidity": 65}
+
+--- TURN 2: User asks about stock ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 4 total
+  [0] user: What's the weather in Tokyo?
+  [1] assistant: <|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>
+  [2] tool: {"city": "Tokyo", "temperature": 22, "condition": "sunny", "humidity": 65}
+  [3] user: Now check the stock price for AAPL
+Tools: 2 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: <|tool_call_start|>[get_stock_price(symbol="AAPL")]<|tool_call_end|>
+Finish reason: stop
+Tokens: {'completion_tokens': 17, 'prompt_tokens': 235, 'total_tokens': 252}
+Tool calls: ['get_stock_price(symbol="AAPL")']
+✓ PASS: Model made tool call in turn 2
+
+============================================================
+TEST 4B: Multi-Turn Using Previous Context
+============================================================
+
+--- TURN 1: Get weather ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 1 total
+  [0] user: What's the weather in Tokyo?
+Tools: 1 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: <|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>
+Finish reason: stop
+Tokens: {'completion_tokens': 14, 'prompt_tokens': 87, 'total_tokens': 101}
+Tool calls: ['get_weather(city="Tokyo")']
+Tool result: {"city": "Tokyo", "temperature": 22, "condition": "sunny", "humidity": 65}
+
+--- TURN 2: Get weather for different city ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 4 total
+  [0] user: What's the weather in Tokyo?
+  [1] assistant: <|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>
+  [2] tool: {"city": "Tokyo", "temperature": 22, "condition": "sunny", "humidity": 65}
+  [3] user: Now get the weather in London
+Tools: 1 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: <|tool_call_start|>[get_weather(city="London")]<|tool_call_end|>
+Finish reason: stop
+Tokens: {'completion_tokens': 13, 'prompt_tokens': 171, 'total_tokens': 184}
+Tool calls: ['get_weather(city="London")']
+✓ PASS: Model made tool call for new city
+Tool result: {"city": "London", "temperature": 15, "condition": "rainy", "humidity": 80}
+
+--- TURN 3: Compare results (no tool needed) ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 7 total
+  [0] user: What's the weather in Tokyo?
+  [1] assistant: <|tool_call_start|>[get_weather(city="Tokyo")]<|tool_call_end|>
+  [2] tool: {"city": "Tokyo", "temperature": 22, "condition": "sunny", "humidity": 65}
+  [3] user: Now get the weather in London
+  [4] assistant: <|tool_call_start|>[get_weather(city="London")]<|tool_call_end|>
+  [5] tool: {"city": "London", "temperature": 15, "condition": "rainy", "humidity": 80}
+  [6] user: Which city is warmer?
+Tools: 1 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: Tokyo has a current temperature of 22°C, while London is at 15°C. Therefore, Tokyo is warmer.
+Finish reason: stop
+Tokens: {'completion_tokens': 26, 'prompt_tokens': 252, 'total_tokens': 278}
+Tool calls: []
+Response: Tokyo has a current temperature of 22°C, while London is at 15°C. Therefore, Tokyo is warmer.
+✓ PASS: Model answered from context without unnecessary tool call
+
+============================================================
+TEST 4C: Tool Response Format Variations
+============================================================
+
+--- Testing with <|tool_response_start|> markers ---
+
+------------------------------------------------------------
+REQUEST:
+------------------------------------------------------------
+Messages: 4 total
+  [0] user: What's the weather in Paris?
+  [1] assistant: <|tool_call_start|>[get_weather(city="Paris")]<|tool_call_end|>
+  [2] tool: <|tool_response_start|>{"city": "Paris", "temperature": 18, "condition": "cloudy", "humidity": 70}<|...
+  [3] user: What about London?
+Tools: 1 available
+
+------------------------------------------------------------
+RESPONSE:
+------------------------------------------------------------
+Content: <|tool_call_start|>[get_weather(city="London")]<|tool_call_end|>
+Finish reason: stop
+Tokens: {'completion_tokens': 13, 'prompt_tokens': 170, 'total_tokens': 183}
+Result: ✓ - Got 1 calls
+
+============================================================
+SUMMARY
+============================================================
+Tool Visibility: 5/5 tools
+Sequential Calls: 3 max
+Multi-Turn Basic: ✓ PASS
+Multi-Turn Context: ✓ PASS
+Multi-Turn Formats: ✓ PASS
+============================================================

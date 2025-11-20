@@ -1,0 +1,40 @@
+============================================================
+TOOL CALLING API TEST SUITE
+Server: http://localhost:8080/v1
+Model: LFM2-8B-A1B-BF16-cuda
+============================================================
+
+============================================================
+TEST 1: Basic Tool Call
+============================================================
+
+[DEBUG] API Response:
+{
+  "error": {
+    "code": 500,
+    "message": "Failed to parse tools: Missing tool function: {\"type\":\"function\",\"name\":\"get_weather\",\"description\":\"Get current weather\",\"parameters\":{\"type\":\"object\",\"properties\":{\"city\":{\"type\":\"string\"}},\"required\":[\"city\"]}}; tools = [\n  {\n    \"type\": \"function\",\n    \"name\": \"get_weather\",\n    \"description\": \"Get current weather\",\n    \"parameters\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"city\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"city\"\n      ]\n    }\n  }\n]",
+    "type": "server_error"
+  }
+}
+
+
+============================================================
+CRITICAL FAILURE: Basic test failed
+Reason: API call failed: API Error 500: Failed to parse tools: Missing tool function: {"type":"function","name":"get_weather","description":"Get current weather","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]}}; tools = [
+  {
+    "type": "function",
+    "name": "get_weather",
+    "description": "Get current weather",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "city"
+      ]
+    }
+  }
+]
